@@ -6,6 +6,7 @@
     "username": "pepito",
     "password": "123",
     "nif": "123456789T",
+    "mail":"pepitop@gmail.com",
     "collaborations": [
     {
         "festival": 1,
@@ -29,6 +30,7 @@
     "username": "fulanito",
     "password": "123",
     "nif": "123124241G",
+    "mail":"fulanitop@gmail.com",
     "collaborations": [
     {
         "festival": 1,
@@ -46,6 +48,7 @@
     "username": "menganito",
     "password": "123",
     "nif": "123564241H",
+    "mail":"fulanitop@gmail.com",
     "collaborations": [
     {
         "festival": 2,
