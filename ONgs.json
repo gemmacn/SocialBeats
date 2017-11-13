@@ -1,0 +1,51 @@
+
+
+ONGs:{
+
+"Kali_Zor":{
+"name":"Kali Zor"
+"project_type": "Monitor/a en Escuela de Futbol de Sant Roc (Badalona). Adolescentes mayoría gitana y pakistaní. Ayuda durante los entrenos y logística de materiales"
+"area": "Jóvenes en Riesgo de exclusión social  + Deporte"
+"location":"Badalona, Sant Roc",
+"max-hours": 8hrs,
+"min-hours":4hrs
+"available_dates": 
+"contact_info": "David Sarroca"
+}
+
+"BcnGreen":{
+"name":"BcnGreen"
+"project_type": "Recogida de plasticos y basura de las playas y zonas de montaña"
+"area": "Medio Ambiente"
+"location":"Barcelona Playas, Barcelona Montjuïc, Barcelona Tibidabo",
+"max-hours": 8hrs,
+"min-hours":4hrs
+"available_dates": 
+"contact_info": "Ana Maria Sarria"
+}
+
+"Animalistc":{
+"name":"Animalistic"
+"project_type": "Pasear Perros, cuidado de animales"
+"area": "Animales"
+"location":"Gossera de Barcelona, Tibidabo",
+"max-hours": 8hrs,
+"min-hours":4hrs
+"available_dates": 
+"contact_info": "Juan Pellissser"
+}
+
+"Associació de dones del Raval":{
+"name":"Associació de dones del Raval"
+"project_type": "Conversación en Catalán y Castellano con mujeres immigrantes dentro de las classes que se imparten"
+"area": "Mujeres, immigración"
+"location":"C/Olcinelles 12",
+"max-hours": 4hrs,
+"min-hours":2hrs
+"available_dates": 
+"contact_info": "Dolores Martí"
+}
+
+
+
+}
