@@ -1,0 +1,57 @@
+[
+{
+    "id": 1,
+    "name": "Pepito",
+    "surname": "Garcia",
+    "username": "pepito",
+    "password": "123",
+    "nif": "123456789T",
+    "collaborations": [
+    {
+        "festival": 1,
+        "project": 1,
+        "date": "2018-01-20T23:32:18Z",
+        "hours": 4,
+        "status": "PENDING"
+    },
+    {
+        "festival": 3,
+        "project": 4,
+        "date": "2018-01-21T23:32:18Z",
+        "hours": 8,
+        "status": "ACCEPTED"
+    }]
+},
+{
+    "id": 2,
+    "name": "Fulanito",
+    "surname": "Garcia",
+    "username": "fulanito",
+    "password": "123",
+    "nif": "123124241G",
+    "collaborations": [
+    {
+        "festival": 1,
+        "project": 3,
+        "date": "2018-01-20T23:32:18Z",
+        "hours": 8,
+        "status": "DONE",
+        "discount": 40
+    }]
+},
+{
+    "id": 3,
+    "name": "Menganito",
+    "surname": "Garcia",
+    "username": "menganito",
+    "password": "123",
+    "nif": "123564241H",
+    "collaborations": [
+    {
+        "festival": 2,
+        "project": 4,
+        "date": "2018-01-21T23:32:18Z",
+        "hours": 8,
+        "status": "PENDING"
+    }]
+}]

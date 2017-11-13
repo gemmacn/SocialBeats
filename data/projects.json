@@ -1,0 +1,41 @@
+[
+{
+	"id": 1,
+    "name": "Kali Zor",
+    "description": "Monitor/a en Escuela de Futbol de Sant Roc (Badalona). Adolescentes mayoría gitana y pakistaní. Ayuda durante los entrenos y logística de materiales",
+    "area": "Jóvenes en Riesgo de exclusión social  + Deporte",
+    "location": "Badalona, Sant Roc",
+    "collaboration_hours": [4, 8],
+    "available_dates": ["2018-01-20T23:32:18Z"],
+    "contact_info": "David Sarroca"
+},
+{
+	"id": 2,
+    "name": "Bcn Green",
+    "description": "Recogida de plasticos y basura de las playas y zonas de montaña",
+    "area": "Medio Ambiente",
+    "location": "Barcelona Playas, Barcelona Montjuïc, Barcelona Tibidabo",
+    "collaboration_hours": [4, 8],
+    "available_dates": ["2018-01-20T23:32:18Z", "2018-01-21T23:32:18Z"],
+    "contact_info": "Ana Maria Sarria"
+},
+{
+	"id": 3,
+    "name": "Animalistic",
+    "description": "Pasear Perros, cuidado de animales",
+    "area": "Animales",
+    "location": "Gossera de Barcelona, Tibidabo",
+    "collaboration_hours": [4, 8],
+    "available_dates": ["2018-01-20T23:32:18Z"],
+    "contact_info": "Juan Pellissser"
+},
+{
+	"id": 4,
+    "name": "Associació de dones del Raval",
+    "description": "Conversación en Catalán y Castellano con mujeres immigrantes dentro de las classes que se imparten",
+    "area": "Mujeres, immigración",
+    "location": "C/Olcinelles 12",
+    "collaboration_hours": [4, 8],
+    "available_dates": ["2018-01-20T23:32:18Z", "2018-01-21T23:32:18Z", "2018-01-22T23:32:18Z"],
+    "contact_info": "Dolores Martí"
+}]
