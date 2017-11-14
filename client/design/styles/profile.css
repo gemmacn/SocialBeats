@@ -37,6 +37,11 @@ h3{
 	 font-size: 2em;
 }
 
+h2{
+	font-family: 'Impact';
+	 font-size: 1.5em;
+}
+
 div .tittle {
 	padding:5%;
 	border: 1px solid white;
@@ -50,15 +55,29 @@ div .tittle:hover {
 	color:black;
 	background-color: white;
 }
-
 div .descrip {
 	border: 1px solid white;
 	height: 133px;
+	line-height: 90%;
 	 font-family: 'Impact';
-	 font-size: 3.5em;
+	 font-size:4.5vw ;
+	 text-align: :center;
 
 }
 
 .profile{
-	display:inline-block;
+ -webkit-filter: grayscale(100%); 
+  filter: grayscale(100%);
+background-color: white;
+
+}
+ .perfil{
+
+padding-right:0 !important;
+}
+.perfil img{
+margin: 0 auto !important;
+}
+.datos{
+	padding-left:0px !important;
 }
