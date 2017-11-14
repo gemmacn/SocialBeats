@@ -115,10 +115,6 @@ background-color: white
 
 
 
-
-
-
-
 button{
 	margin:2%;
 	color:black;
@@ -128,13 +124,5 @@ button{
 
 }
 
-button:hover{
-	margin:2%;
-	color:white;
-	background-color: black;
-	border:1px solid white;
-	padding:2%;
-
-}
 
 
