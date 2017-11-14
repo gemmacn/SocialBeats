@@ -18,10 +18,12 @@ time, mark, audio, video {
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
-	background-color:#0C0C0C;
+	background-color:#060606;
 color:white;
 font-family: 'Open Sans', sans-serif;
 }
+
+
 
 @font-face {
 	font-family: 'Impact';
@@ -30,8 +32,13 @@ font-family: 'Open Sans', sans-serif;
 
 }
 
+h3{
+	font-family: 'Impact';
+	 font-size: 2em;
+}
 
 div .tittle {
+	padding:5%;
 	border: 1px solid white;
 	text-decoration: underline;
 	text-decoration-color: white;
@@ -46,29 +53,88 @@ div .tittle:hover {
 
 div .descrip {
 	border: 1px solid white;
-	height: 90px;
+	height: 133px;
+	 font-family: 'Impact';
+	 font-size: 3.5em;
+
 }
 .text1, .text2{
-	border: 1px solid white;
-	padding:5px;
+		border: 1px solid white;
+	padding:5%;
 }
 
 .text1:hover, .text2:hover{
 	border: 1px solid black;
 	color:black;
 	background-color: white;
-	padding:5px;
+	padding:5%;
 }
 
+.festis{
+	display:flex;
+	justify-content: space-between;
+align-items:center;
+padding-right: 5%;
+padding-left: 5%;}
+
 .crimg, .soimg, .primg{
-	width:20%;
-	dislay:inline;
+	width:60%;
+	dislay:block;
 
 }
 
 .choose{
+	margin-top:44px;
 	 font-family: 'Impact';
 	 font-size: 2em;
+	 padding-bottom:5%;
+
+}
+
+.voluntariados{
+	 font-family: 'Impact';
+	 font-size: 2em;
+	 margin-bottom:4%;
+}
+
+
+.ong{display:inline-block;
+padding:2%;
+	border: 1px solid white;
+}
+.ong:hover h3{
+color:black;
+background-color: white
+}
+.ong:hover{display:inline-block;
+padding:2%;
+border: 1px solid black;
+color:black;
+background-color: white
+}
+
+
+
+
+
+
+
+button{
+	margin:2%;
+	color:black;
+	background-color: white;
+	border-style: none;
+	padding:2%;
+
+}
+
+button:hover{
+	margin:2%;
+	color:white;
+	background-color: black;
+	border:1px solid white;
+	padding:2%;
+
 }
 
 
