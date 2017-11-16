@@ -7,6 +7,7 @@ const FestivalsData = new(require('./data/FestivalsData.js'))
 const UsersData = new(require('./data/UsersData'))
 const mongoose = require('mongoose')
 const bodyParser= require('body-parser')
+const Project= require('./data/models/ProjectsModel')
 
 
 app.use(bodyParser.json())
@@ -18,9 +19,8 @@ mongoose.connect('mongodb://localhost:27017/socialbeats',{useMongoClient:true})
 // crear router
 // router.route('/ong')
 
-app.get('/ong', (req,res)=>{
-	//ongData.listAllTheOng()
-	//ProjectsModel.find('5a09ba02de937d39a73c39e3').exec()
+app.get('/ong/:festival', (req,res)=>{
+		var  festival = req.params.festival
 	ProjectsData.listAllTheProjects()
 		.then(onginfo => {
 			console.log(onginfo)
@@ -74,6 +74,18 @@ app.get('/users', (req,res)=>{
 		        message: err.message
 			})
 		})
+})
+
+app.post('/setproject', (req,res) => {
+    const {name,description,area,location,
+    collaboration_hours,available_dates,contact_info} = req.body
+
+    const project = new Project({name,description,area,location,
+    collaboration_hours,available_dates,contact_info})
+project.save()
+	.then((data)=>res.send(data))
+	.catch((data)=>res.send(data))
+
 })
 
 

@@ -27,7 +27,7 @@ font-family: 'Open Sans', sans-serif;
 
 @font-face {
 	font-family: 'Impact';
-	src: url('./styles/fonts/impact.ttf');
+	src: url('/styles/fonts/impact.ttf');
 	format:('truetype');
 
 }
@@ -35,6 +35,11 @@ font-family: 'Open Sans', sans-serif;
 h3{
 	font-family: 'Impact';
 	 font-size: 2em;
+}
+
+h2{
+	font-family: 'Impact';
+	 font-size: 1.5em;
 }
 
 div .tittle {
@@ -56,7 +61,6 @@ div .descrip {
 	height: 133px;
 	 font-family: 'Impact';
 	 font-size: 3.5em;
-
 }
 .text1, .text2{
 		border: 1px solid white;
@@ -78,7 +82,7 @@ padding-right: 5%;
 padding-left: 5%;}
 
 .crimg, .soimg, .primg{
-	width:60%;
+	width:70%;
 	dislay:block;
 
 }
