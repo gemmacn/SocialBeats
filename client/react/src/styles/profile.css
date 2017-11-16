@@ -27,7 +27,7 @@ font-family: 'Open Sans', sans-serif;
 
 @font-face {
 	font-family: 'Impact';
-	src: url('fonts/impact.ttf');
+	src: url('./fonts/impact.ttf');
 	format:('truetype');
 
 }
@@ -35,6 +35,11 @@ font-family: 'Open Sans', sans-serif;
 h3{
 	font-family: 'Impact';
 	 font-size: 2em;
+}
+
+h2{
+	font-family: 'Impact';
+	 font-size: 1.5em;
 }
 
 div .tittle {
@@ -50,79 +55,29 @@ div .tittle:hover {
 	color:black;
 	background-color: white;
 }
-
 div .descrip {
 	border: 1px solid white;
 	height: 133px;
+	line-height: 90%;
 	 font-family: 'Impact';
-	 font-size: 3.5em;
-
-}
-.text1, .text2{
-		border: 1px solid white;
-	padding:5%;
-}
-
-.text1:hover, .text2:hover{
-	border: 1px solid black;
-	color:black;
-	background-color: white;
-	padding:5%;
-}
-
-.festis{
-	display:flex;
-	justify-content: space-between;
-align-items:center;
-padding-right: 5%;
-padding-left: 5%;}
-
-.crimg, .soimg, .primg{
-	width:60%;
-	dislay:block;
+	 font-size:4.5vw ;
+	 text-align:center;
 
 }
 
-.choose{
-	margin-top:44px;
-	 font-family: 'Impact';
-	 font-size: 2em;
-	 padding-bottom:5%;
+.profile{
+ -webkit-filter: grayscale(100%); 
+  filter: grayscale(100%);
+background-color: white;
 
 }
+ .perfil{
 
-.voluntariados{
-	 font-family: 'Impact';
-	 font-size: 2em;
-	 margin-bottom:4%;
+padding-right:0 !important;
 }
-
-
-.ong{display:inline-block;
-padding:2%;
-	border: 1px solid white;
+.perfil img{
+margin: 0 auto !important;
 }
-.ong:hover h3{
-color:black;
-background-color: white
+.datos{
+	padding-left:0px !important;
 }
-.ong:hover{display:inline-block;
-padding:2%;
-border: 1px solid black;
-color:black;
-background-color: white
-}
-
-
-
-button{
-	margin:2%;
-	color:black;
-	background-color: white;
-	border-style: none;
-	padding:2%;
-
-}
-
-
-
