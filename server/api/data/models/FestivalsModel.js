@@ -1,14 +1,13 @@
 const mongoose= require('mongoose')
 const Schema = mongoose.Schema
-const ProjectsModel = require('./ProjectsModel')
+const OngModel = require('./OngModel')
 
 const Festivals = new Schema({
-   	"id": Number,
 	"name": String,
 	"dates": String,
 	"url": String,
 	"projectes":[{
-		type: Schema.ObjectId, ref: "ProjectsModel"
+		type: Schema.ObjectId, ref: "OngModel"
 	}]
 })
 

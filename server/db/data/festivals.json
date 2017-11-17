@@ -1,17 +1,14 @@
 [{
-	"id": 1,
 	"name": "Sonar 2018",
 	"dates": "13, 14, 15, 16 junio",
 	"url": "https://sonar.es"
 },
 {
-	"id": 2,
 	"name": "Primavera Sound 2018",
 	"dates": "30 mayo al 3 junio",
 	"url": "https://www.primaverasound.com"
 },
-{
-	"id": 3,
+{,
 	"name": "Cruïlla 2018",
 	"dates": "13, 14 julio",
 	"url": "http://www.cruillabarcelona.com"

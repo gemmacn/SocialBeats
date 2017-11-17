@@ -1,6 +1,5 @@
 [
 {
-	"id": 1,
     "name": "Kali Zor",
     "description": "Monitor/a en Escuela de Futbol de Sant Roc (Badalona). Adolescentes mayoría gitana y pakistaní. Ayuda durante los entrenos y logística de materiales",
     "area": "Jóvenes en Riesgo de exclusión social  + Deporte",
@@ -10,7 +9,6 @@
     "contact_info": "David Sarroca"
 },
 {
-	"id": 2,
     "name": "Bcn Green",
     "description": "Recogida de plasticos y basura de las playas y zonas de montaña",
     "area": "Medio Ambiente",
@@ -20,7 +18,6 @@
     "contact_info": "Ana Maria Sarria"
 },
 {
-	"id": 3,
     "name": "Animalistic",
     "description": "Pasear Perros, cuidado de animales",
     "area": "Animales",
@@ -30,7 +27,6 @@
     "contact_info": "Juan Pellissser"
 },
 {
-	"id": 4,
     "name": "Associació de dones del Raval",
     "description": "Conversación en Catalán y Castellano con mujeres immigrantes dentro de las classes que se imparten",
     "area": "Mujeres, immigración",

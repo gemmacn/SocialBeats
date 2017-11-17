@@ -1,7 +1,7 @@
 const mongoose= require('mongoose')
 const Schema = mongoose.Schema
 
-const Projects = new Schema({
+const OngModel = new Schema({
     "name": String,
     "description": String,
     "area": String,
@@ -12,4 +12,4 @@ const Projects = new Schema({
 })
 
 // conecta tabla 'projeccts' con nuestro modelo 'Projects'
-module.exports = mongoose.model('projects', Projects)
+module.exports = mongoose.model('OngModel', OngModel)

@@ -2,13 +2,13 @@ const express =require('express')
 const cors = require('cors')
 const app = express()
 //const ProjectsModel = require('./data/models/ProjectsModel')
-const ProjectsData = new(require('./data/OngData.js'))
-const FestivalsData = new(require('./data/FestivalsData.js'))
 const UsersData = new(require('./data/UsersData'))
 const mongoose = require('mongoose')
 const bodyParser= require('body-parser')
-const Project= require('./data/models/ProjectsModel')
-
+const OngModel= require('./data/models/OngModel')
+const OngData = new(require('./data/OngData.js'))
+const Festival= require('./data/models/FestivalsModel')
+const FestivalsData = new(require('./data/FestivalsData.js'))
 
 app.use(bodyParser.json())
 app.use(cors())
@@ -19,9 +19,9 @@ mongoose.connect('mongodb://localhost:27017/socialbeats',{useMongoClient:true})
 // crear router
 // router.route('/ong')
 
-app.get('/ong/:festival', (req,res)=>{
-		var  festival = req.params.festival
-	ProjectsData.listAllTheProjects()
+app.get('/ong/:ongId', (req,res)=>{
+		var  ongId = req.params.ongId
+	OngData.listAllTheProjects(ongId)
 		.then(onginfo => {
 			console.log(onginfo)
 			res.status(200).json({
@@ -37,15 +37,16 @@ app.get('/ong/:festival', (req,res)=>{
 			})
 		})
 })
-app.get('/festivals', (req,res)=>{
+app.get('/festivals/:festivalid', (req,res)=>{
+		  var festivalid = req.params.festivalid
 	//ongData.listAllTheOng()
 	//ProjectsModel.find('5a09ba02de937d39a73c39e3').exec()
-	FestivalsData.listAllTheFestivals()
+	FestivalsData.listAllTheFestivals(festivalid)
 		.then(festinfo => {
 			console.log(festinfo)
 			res.status(200).json({
 				status: 'OK',
-		        message: 'festivals listed successfully',
+		        message: 'festival listed successfully',
 		        data: festinfo
 			})
 		})
@@ -76,13 +77,23 @@ app.get('/users', (req,res)=>{
 		})
 })
 
-app.post('/setproject', (req,res) => {
+app.post('/setong', (req,res) => {
     const {name,description,area,location,
     collaboration_hours,available_dates,contact_info} = req.body
 
-    const project = new Project({name,description,area,location,
+    const ong = new OngModel({name,description,area,location,
     collaboration_hours,available_dates,contact_info})
-project.save()
+ong.save()
+	.then((data)=>res.send(data))
+	.catch((data)=>res.send(data))
+
+})
+
+app.post('/setfestival', (req,res) => {
+    const {name,dates,url,projectes} = req.body
+
+    const festival = new Festival({name,dates,url,projectes})
+festival.save()
 	.then((data)=>res.send(data))
 	.catch((data)=>res.send(data))
 
