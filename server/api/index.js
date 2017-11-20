@@ -13,10 +13,12 @@ const FestivalsData = new(require('./data/FestivalsData.js'))
 app.use(bodyParser.json())
 app.use(cors())
 mongoose.Promise = Promise
-mongoose.connect('mongodb://liliththecoder:460Tomo:@ds251435.mlab.com:51435/dbsocialbeats',{useMongoClient:true})
+mongoose.connect('mongodb://lilith:10b579ba@ds251435.mlab.com:51435/dbsocialbeats',{useMongoClient:true})
+.then (()=> console.log('conected'))
+.catch (err=>console.log(err))
 
 // ong/projects
-// crear router
+// crear rou
 // router.route('/ong')
 
 app.get('/ong/:ongId', (req,res)=>{
