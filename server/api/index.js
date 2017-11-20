@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 const express =require('express')
 const cors = require('cors')
 const app = express()
@@ -123,4 +125,4 @@ festival.save()
 
 
 
-app.listen(3000, ()=> console.log(`express API is UP on port 3000`))
+app.listen(process.env.PORT, ()=> console.log(`express API is UP on port ${process.env.PORT}`))
