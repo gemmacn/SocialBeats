@@ -13,7 +13,7 @@ const FestivalsData = new(require('./data/FestivalsData.js'))
 app.use(bodyParser.json())
 app.use(cors())
 mongoose.Promise = Promise
-mongoose.connect('mongodb://localhost:27017/socialbeats',{useMongoClient:true})
+mongoose.connect('mongodb://liliththecoder:460Tomo:@ds251435.mlab.com:51435/dbsocialbeats',{useMongoClient:true})
 
 // ong/projects
 // crear router

@@ -39,7 +39,7 @@ class Home extends Component{
                <a onClick={()=>this.activefestival('Sonar 2018')}><img  className="soimg" src="images/sonarlogo.png" alt="Social Beats" /></a>
                <a onClick={()=>this.activefestival('Primavera Sound 2018')}><img className="primg" src="images/primaveralogo.jpg" alt="Social Beats" /></a>
             </div>
-           {this.state.projects.length>=1 ? <div className=" voluntariados text-center"><h2>CHOOSE A VOLUNTEER PROJECT</h2></div> : ''
+           {this.state.projects.length ? <div className=" voluntariados text-center"><h2>CHOOSE A VOLUNTEER PROJECT</h2></div> : ''
             }
             {this.state.projects.length && this.state.projects.map((project,i) => <Projects key={i} project={project}/>)
            }

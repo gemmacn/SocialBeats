@@ -1,15 +1,1 @@
-[{
-	"name": "Sonar 2018",
-	"dates": "13, 14, 15, 16 junio",
-	"url": "https://sonar.es"
-},
-{
-	"name": "Primavera Sound 2018",
-	"dates": "30 mayo al 3 junio",
-	"url": "https://www.primaverasound.com"
-},
-{,
-	"name": "Cruïlla 2018",
-	"dates": "13, 14 julio",
-	"url": "http://www.cruillabarcelona.com"
-}]
+[{"_id":{"$oid":"5a0eb6079c12761b44764aac"},"name":"Sonar 2018","dates":"13, 14, 15, 16 junio","url":"https://sonar.es","projectes":[{"$oid":"5a0eafaf92219d3288c9ae52"},{"$oid":"5a0eb4a09c12761b44764aaa"}],"__v":0},{"_id":{"$oid":"5a0eb65b9c12761b44764aad"},"name":"Primavera Sound 2018","dates":"30 mayo al 3 junio","url":"https://www.primaverasound.com","projectes":[{"$oid":"5a0eb4a09c12761b44764aaa"},{"$oid":"5a0eb4da9c12761b44764aab"}],"__v":0},{"_id":{"$oid":"5a0eba3a5e537827343a1db2"},"name":"Cruilla2018","dates":"13, 14 julio","url":"http://www.cruillabarcelona.com","projectes":[{"$oid":"5a0eb95f3dac8e289c3f0aeb"},{"$oid":"5a0eb99a3dac8e289c3f0aec"}],"__v":0}]
