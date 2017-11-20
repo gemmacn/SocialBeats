@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const  ProjectsApi = {
-	baseUrl :'http://localhost:3000/festivals',
+	baseUrl :'http://obscure-stream-32522.herokuapp.com/festivals',
 
 	searchProjects : function (query) {
 		return axios.get(this.baseUrl +'/' + query)
