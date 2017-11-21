@@ -25,7 +25,7 @@ mongoose.connect('mongodb://lilith:10b579ba@ds251435.mlab.com:51435/dbsocialbeat
 
 app.get('/ong/:ongId', (req,res)=>{
 		var  ongId = req.params.ongId
-	OngData.listAllTheProjects(ongId)
+	OngData.listOneOng(ongId)
 		.then(onginfo => {
 			console.log(onginfo)
 			res.status(200).json({
@@ -101,12 +101,30 @@ app.get('/users', (req,res)=>{
 		})
 })
 
+app.get('/ongs', (req,res)=>{
+	OngData.listAllTheOng()
+		.then(Onginfo => {
+			console.log(Onginfo)
+			res.status(200).json({
+				status: 'OK',
+		        message: 'ONgs listed successfully',
+		        data: Onginfo
+			})
+		})
+		.catch(err => {
+			res.status(404).json({
+				status: 'KO',
+		        message: err.message
+			})
+		})
+})
+
 app.post('/setong', (req,res) => {
     const {name,description,area,location,
-    collaboration_hours,available_dates,contact_info} = req.body
+    available_dates,contact_info} = req.body
 
     const ong = new OngModel({name,description,area,location,
-    collaboration_hours,available_dates,contact_info})
+    available_dates,contact_info})
 ong.save()
 	.then((data)=>res.send(data))
 	.catch((data)=>res.send(data))
@@ -121,6 +139,40 @@ festival.save()
 	.then((data)=>res.send(data))
 	.catch((data)=>res.send(data))
 
+})
+
+
+
+app.delete('/deleteong/:ongId', (req,res) =>{
+
+	const ongId = req.params.ongId
+
+	OngData.deleteOneOng(ongId)
+            .then(ongdeleted => res.json({
+                status: 'OK',
+                message: 'Ong deleted successfully',
+                data: ongdeleted
+            }))
+            .catch(err => res.json({
+                status: 'KO',
+                message: err.message
+            }))
+})
+
+app.delete('/deletefestival/:festivalId', (req,res) =>{
+
+	const festivalId = req.params.festivalId
+
+	FestivalsData.deleteOneFestival(festivalId)
+            .then(festivaldeleted => res.json({
+                status: 'OK',
+                message: 'Festival deleted successfully',
+                data: festivaldeleted
+            }))
+            .catch(err => res.json({
+                status: 'KO',
+                message: err.message
+            }))
 })
 
 

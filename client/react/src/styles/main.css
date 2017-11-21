@@ -106,7 +106,7 @@ padding-left: 5%;}
 padding:2%;
 	border: 1px solid white;
 }
-.ong:hover h3{
+/*.ong:hover h3{
 color:black;
 background-color: white
 }
@@ -116,7 +116,7 @@ border: 1px solid black;
 color:black;
 background-color: white
 }
-
+*/
 
 
 button{
@@ -127,8 +127,12 @@ button{
 	border-style: none;
 	padding:2%;
 	margin-left:0;
+}
 
+.navbar{
+border:none;
 }
 
 
 
+.navbar-default .navbar-nav>li>a{color:white;}

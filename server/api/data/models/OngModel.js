@@ -6,10 +6,13 @@ const OngModel = new Schema({
     "description": String,
     "area": String,
     "location": String,
-    "collaboration_hours": [Number],
-    "available_dates": [String],
+    "available_dates": [{
+    	day: String,
+    	hours: Number
+    }],
     "contact_info": String
 })
 
 // conecta tabla 'projeccts' con nuestro modelo 'Projects'
 module.exports = mongoose.model('OngModel', OngModel)
+

@@ -16,6 +16,11 @@ class FestData {
 		.exec()
 		}
 
+		deleteOneFestival(festivalId){
+		return FestivalsModel.remove({_id:festivalId})
+		.exec()
+		}
+
 }
 
 module.exports = FestData

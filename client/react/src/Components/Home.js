@@ -41,7 +41,7 @@ class Home extends Component{
             </div>
            {this.state.projects.length ? <div className=" voluntariados text-center"><h2>CHOOSE A VOLUNTEER PROJECT</h2></div> : ''
             }
-            {this.state.projects.length && this.state.projects.map((project,i) => <Projects key={i} project={project}/>)
+            {this.state.projects.length && this.state.projects.map((project,i) => <Projects key={i} project={project}  festival={this.state.Festival_name}/>)
            }
       </article>
       )
