@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import '../styles/main.css';
 import  Projects from './Projects'
-import ProjectsApi from '../ProjectsApi'
+import axiosApi from '../axiosApi'
 
 
 class Home extends Component{
@@ -18,7 +18,7 @@ class Home extends Component{
     this.setState({
      Festival_name:festival
     })
-    ProjectsApi.searchProjects(festival)
+    axiosApi.searchProjects(festival)
       .then((data) =>{
         console.log(data.data.data[0].projectes)
         this.setState({

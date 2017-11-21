@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {HashRouter, Link, Route} from 'react-router-dom'
 import '../styles/main.css';
+import axiosApi from '../axiosApi'
 
 class Projects extends Component{
 constructor(props){
@@ -13,14 +14,24 @@ constructor(props){
 }
 
 CheckedDates=(dateday,datehours)=>{
-
-this.setState({
-            dateday: dateday,
-            datehours:datehours,
-            checked:true
+  this.setState({
+              dateday: dateday,
+              datehours:datehours,
+              checked:true
+          })
+  console.log(this.state)
+axiosApi.putUserAllInfo(this.props.project.name,this.props.festival,this.state.dateday,this.state.datehours)
+      .then((data) =>{
+        console.log(data)
+        this.setState({
+            projects: data
         })
-console.log(this.state)
+        console.log(this.state)
+      })
 }
+
+
+
 
 	render(){
     console.log(this.props.project.available_dates,'hola')

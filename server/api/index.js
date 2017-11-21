@@ -11,6 +11,8 @@ const OngModel= require('./data/models/OngModel')
 const OngData = new(require('./data/OngData.js'))
 const Festival= require('./data/models/FestivalsModel')
 const FestivalsData = new(require('./data/FestivalsData.js'))
+const userModel = require('./data/models/UsersModel')
+const UserData = new(require('./data/UsersData.js'))
 
 app.use(bodyParser.json())
 app.use(cors())
@@ -138,6 +140,16 @@ app.post('/setfestival', (req,res) => {
 festival.save()
 	.then((data)=>res.send(data))
 	.catch((data)=>res.send(data))
+
+})
+
+app.post('/setuser', (req,res) => {
+    const {name,surname,username,password,nif, mail, collaborations } = req.body
+
+    const user = new UserModel({name,surname,username,password,nif, mail, collaborations[{festival,project,dates,hours,status}]})
+user.save()
+	.then((dataUser)=>res.send(dataUser))
+	.catch((dataUser)=>res.send(dataUser))
 
 })
 

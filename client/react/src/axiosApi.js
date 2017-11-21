@@ -1,10 +1,10 @@
 import axios from 'axios'
 
-const  ProjectsApi = {
-	baseUrl :'http://localhost:3000/festivals',
+const  axiosApi = {
+	baseUrl :'http://localhost:3000',
 
 	searchProjects : function (query) {
-		return axios.get(this.baseUrl +'/' + query)
+		return axios.get(this.baseUrl +'/festivals' + query)
 		.then((data)=>{
 			return data
 		})
@@ -14,9 +14,18 @@ const  ProjectsApi = {
 
 	}
 
+
+	putUserAllInfo: function(query){
+		return axios.post(this.baseUrl,{
+			
+		})
+	}
+
 }
+
+
 
 
 // faltará una funció per fer el registre que será un post
 //faltará una altra funció per fer el login que será un port 
-export default ProjectsApi
+export default axiosApi
