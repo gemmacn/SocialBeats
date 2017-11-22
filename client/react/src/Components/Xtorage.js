@@ -1,12 +1,12 @@
 /**
- * Provides a common Storage interface for session and local storage
+ * Provides a common interface for session and local storage
  * 
  * Usage:
- *		Storage.local.setObject('something', { data: 'Hello, World!' })
- *		const data = Storage.local.getObject('something')
+ *		Xtorage.local.setObject('something', { data: 'Hello, World!' })
+ *		const data = Xtorage.local.getObject('something')
  *		console.log(data.message)
  */
-class Storage {
+class Xtorage {
 	constructor(storage) {
 		this.storage = storage
 	}
@@ -27,10 +27,10 @@ class Storage {
 		this.set(JSON.stringify(obj))
 	}
 
-	static session = new Storage(sessionStorage)
+	static session = new Xtorage(sessionStorage)
 
-	static local = new Storage(localStorage)
+	static local = new Xtorage(localStorage)
 }
 
-export default Storage
+export default Xtorage
 
