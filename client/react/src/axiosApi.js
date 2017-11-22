@@ -1,10 +1,11 @@
 import axios from 'axios'
 
+
 const  axiosApi = {
 	baseUrl :'http://localhost:3000',
 
 	searchProjects : function (query) {
-		return axios.get(this.baseUrl +'/festivals' + query)
+		return axios.get(this.baseUrl +'/festivals/' + query)
 		.then((data)=>{
 			return data
 		})
@@ -15,9 +16,14 @@ const  axiosApi = {
 	}
 
 
-	putUserAllInfo: function(query){
-		return axios.post(this.baseUrl,{
-			
+
+	postLocalInfoandUser : function (userId,festivalxuser,ongxuser,datedayuser,datehoursuser){
+		return axios.post(this.baseUrl + '/localinfo/', {userId,festivalxuser,ongxuser,datedayuser,datehoursuser})
+		.then((localstdata)=>{
+			return localstdata
+		})
+		.catch((err)=>{
+			console.error(err)
 		})
 	}
 
@@ -25,7 +31,4 @@ const  axiosApi = {
 
 
 
-
-// faltará una funció per fer el registre que será un post
-//faltará una altra funció per fer el login que será un port 
 export default axiosApi

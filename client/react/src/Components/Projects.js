@@ -2,34 +2,45 @@ import React, {Component} from 'react'
 import {HashRouter, Link, Route} from 'react-router-dom'
 import '../styles/main.css';
 import axiosApi from '../axiosApi'
+import Xtorage from './Xtorage'
+
 
 class Projects extends Component{
-constructor(props){
-  super(props)
-  this.state={
-        checked: false,
-        date:''
-      }
+  constructor(props){
+    super(props)
+    this.state={
+          checked: false,
+          date:''
+        }
 
+  }
+
+  CheckedDates=(dateday,datehours)=>{
+
+    this.setState({
+                dateday: dateday,
+                datehours:datehours,
+                checked:true
+            })
+    
+  }
+
+  InfoStorage=() => {
+ var  infopreuser = {
+  festivalxuser: this.props.festival,
+  ongxuser: this.props.project.name,
+  datedayuser:this.state.dateday,
+  datehoursuser:this.state.datehours
+ }
+
+ console.log(infopreuser)
+
+sessionStorage.setItem('infopreuser', JSON.stringify(infopreuser));
+
+const userId= Xtorage.local.get('userId')
+
+axiosApi.postLocalInfoandUser(userId,infoStorage.festivalxuser,infoStorage.ongxuser,infoStorage.datedayuser,infoStorage.datehoursuser)
 }
-
-CheckedDates=(dateday,datehours)=>{
-  this.setState({
-              dateday: dateday,
-              datehours:datehours,
-              checked:true
-          })
-  console.log(this.state)
-axiosApi.putUserAllInfo(this.props.project.name,this.props.festival,this.state.dateday,this.state.datehours)
-      .then((data) =>{
-        console.log(data)
-        this.setState({
-            projects: data
-        })
-        console.log(this.state)
-      })
-}
-
 
 
 
@@ -66,7 +77,8 @@ axiosApi.putUserAllInfo(this.props.project.name,this.props.festival,this.state.d
                                       </div>
                                       <div className="row">
                                           <div className="col-12-xs text-center">
-                                              <button  className="btn btn-success btn-md but" data-dismiss="modal">Si</button>
+                                             <Link to='/register/'> <button  className="btn btn-success btn-md but" data-dismiss="modal"
+                                              onClick={() => this.InfoStorage()}>Si</button></Link>
                                               <button className="btn btn-danger btn-md but" data-dismiss="modal">No</button>
                                           </div>
                                       </div>

@@ -13,6 +13,7 @@ const Festival= require('./data/models/FestivalsModel')
 const FestivalsData = new(require('./data/FestivalsData.js'))
 const userModel = require('./data/models/UsersModel')
 const UserData = new(require('./data/UsersData.js'))
+const Project =  new(require('./data/Projects.js'))
 
 app.use(bodyParser.json())
 app.use(cors())
@@ -143,13 +144,27 @@ festival.save()
 
 })
 
-app.post('/setuser', (req,res) => {
-    const {name,surname,username,password,nif, mail, collaborations } = req.body
+// app.post('/setuser', (req,res) => {
+//     const {name,surname,username,password,nif, mail, collaborations } = req.body
 
-    const user = new UserModel({name,surname,username,password,nif, mail, collaborations[{festival,project,dates,hours,status}]})
-user.save()
-	.then((dataUser)=>res.send(dataUser))
-	.catch((dataUser)=>res.send(dataUser))
+//     const user = new UserModel({name,surname,username,password,nif, mail, collaborations})
+// user.save()
+// 	.then((dataUser)=>res.send(dataUser))
+// 	.catch((dataUser)=>res.send(dataUser))
+
+// })
+
+app.post('/collaborations',(req,res)=>{
+ const {userId,festivalxuser,ongxuser,datedayuser,datehoursuser} = req.body
+
+ UserData.retrieveOneUser(userId)
+ .then((user)=>{
+ 	console.log(user)
+ 	user.some(user._id ===userId)
+
+ })
+ .catch((err)=>{})
+
 
 })
 
