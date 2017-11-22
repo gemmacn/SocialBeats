@@ -3,8 +3,8 @@
  * 
  * Usage:
  *		Xtorage.local.setObject('something', { data: 'Hello, World!' })
- *		const data = Xtorage.local.getObject('something')
- *		console.log(data.message)
+ *		const something = Xtorage.local.getObject('something')
+ *		console.log(something.message)
  */
 class Xtorage {
 	constructor(storage) {
