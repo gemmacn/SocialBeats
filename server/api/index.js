@@ -7,13 +7,10 @@ const app = express()
 const UsersData = new(require('./data/UsersData'))
 const mongoose = require('mongoose')
 const bodyParser= require('body-parser')
-const OngModel= require('./data/models/OngModel')
-const OngData = new(require('./data/OngData.js'))
-const Festival= require('./data/models/FestivalsModel')
-const FestivalsData = new(require('./data/FestivalsData.js'))
-const userModel = require('./data/models/UsersModel')
-const UserData = new(require('./data/UsersData.js'))
-const Project =  new(require('./data/Projects.js'))
+
+const ongData = new(require('./data/OngData.js'))
+const festivalsData = new(require('./data/FestivalsData.js'))
+const userData = new(require('./data/UsersData.js'))
 
 app.use(bodyParser.json())
 app.use(cors())
@@ -25,6 +22,66 @@ mongoose.connect('mongodb://lilith:10b579ba@ds251435.mlab.com:51435/dbsocialbeat
 // ong/projects
 // crear rou
 // router.route('/ong')
+
+app.get('/festivals/name/:festivalName', (req,res)=>{
+		  const festivalName = req.params.festivalName
+
+	festivalsData.retrieveFestivalByName(festivalName)
+		.then(festinfo => {
+			console.log(festinfo)
+
+			res.status(200).json({
+				status: 'OK',
+		        message: 'festival retrieved by name successfully',
+		        data: festinfo
+			})
+		})
+		.catch(err => {
+			res.status(404).json({
+				status: 'KO',
+		        message: err.message
+			})
+		})
+})
+
+app.post('/festival/:festivalId/project/:projectId/collaborate', (req, res) => {
+	const {festivalId, projectId} = req.params
+	const  {userId,dateDay,dateHours} = req.body
+
+	userData.retrieveUserById(userId)
+		.then(user => {
+			for (let i = 0; i < user.collaborations.length; i++) {
+				const collaboration = user.collaborations[i]
+
+				if (collaboration.festival == festivalId) {
+					return res.json({
+						status: 'KO',
+						message: 'user already collaborates with this festival'
+					})
+				}
+			}
+
+			userData.subscribeUserToFestivalCollaboration(userId, festivalId, projectId, dateDay, dateHours)
+				.then(() => {
+					res.json({
+						status: 'OK',
+						message: 'user correctly suscribed to festival collaboration'
+					})
+				})
+				.catch(err => {
+					res.json({
+						status: 'KO',
+						message: err.message
+					})
+				})
+		})
+		.catch(err => {
+					res.json({
+						status: 'KO',
+						message: err.message
+					})
+				})
+})
 
 app.get('/ong/:ongId', (req,res)=>{
 		var  ongId = req.params.ongId
@@ -44,31 +101,11 @@ app.get('/ong/:ongId', (req,res)=>{
 			})
 		})
 })
-app.get('/festivals/:festivalName', (req,res)=>{
-		  var festivalName = req.params.festivalName
-	//ongData.listAllTheOng()
-	console.log(req.params)
-	//ProjectsModel.find('5a09ba02de937d39a73c39e3').exec()
-	FestivalsData.listOneFestival(festivalName)
-		.then(festinfo => {
-			console.log(festinfo)
-			res.status(200).json({
-				status: 'OK',
-		        message: 'festival listed successfully',
-		        data: festinfo
-			})
-		})
-		.catch(err => {
-			res.status(404).json({
-				status: 'KO',
-		        message: err.message
-			})
-		})
-})
+
 app.get('/festivals', (req,res)=>{
 	//ongData.listAllTheOng()
 	//ProjectsModel.find('5a09ba02de937d39a73c39e3').exec()
-	FestivalsData.listAllFestivals()
+	festivalsData.listAllFestivals()
 		.then(festinfo => {
 			console.log(festinfo)
 			res.status(200).json({

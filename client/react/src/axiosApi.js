@@ -4,10 +4,10 @@ import axios from 'axios'
 const  axiosApi = {
 	baseUrl :'http://localhost:3000',
 
-	searchProjects : function (query) {
-		return axios.get(this.baseUrl +'/festivals/' + query)
+	retrieveFestivalByName : function (festivalName) {
+		return axios.get(this.baseUrl +'/festivals/name/' + festivalName)
 		.then((data)=>{
-			return data
+			return data.data
 		})
 		.catch( (err) => {
 			console.error(err)
@@ -17,8 +17,8 @@ const  axiosApi = {
 
 
 
-	postLocalInfoandUser : function (userId,festivalxuser,ongxuser,datedayuser,datehoursuser){
-		return axios.post(this.baseUrl + '/collaborations', {userId,festivalxuser,ongxuser,datedayuser,datehoursuser})
+	collaborate : function (userId,festivalId,projectId,dateDay,dateHours){
+		return axios.post(this.baseUrl + '/festival/' + festivalId + '/project/' + projectId + '/collaborate', {userId,dateDay,dateHours})
 		.then((localstdata)=>{
 			return localstdata
 		})

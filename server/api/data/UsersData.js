@@ -6,8 +6,13 @@ class UsersData {
 	listAllTheUsers() {
 		return UsersModel.find().exec() // exec() devuelve una promise
 	}
-	retrieveOneUser(userId){
-		return UserModel.find({_id:userId}).exec()
+
+	retrieveUserById(userId){
+		return UserModel.findById(userId).exec()
+	}
+
+	subscribeUserToFestivalCollaboration(userId, festivalId, projectId, dateDay, dateHours) {
+		// TODO findOneAndUpdate
 	}
 }
 

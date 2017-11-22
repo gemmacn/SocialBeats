@@ -3,8 +3,8 @@ const FestivalsModel = require('./models/FestivalsModel')
 // metodos CRUD de acceso a la bbdd...
 
 class FestData {
-	listOneFestival(festivalName) {
-		return FestivalsModel.find({name: festivalName})
+	retrieveFestivalByName(festivalName) {
+		return FestivalsModel.findOne({name: festivalName})
 		.populate('projectes')
 		.exec()
 		 // exec() devuelve una promise

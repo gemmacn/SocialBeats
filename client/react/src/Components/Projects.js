@@ -15,31 +15,32 @@ class Projects extends Component{
 
   }
 
-  CheckedDates=(dateday,datehours)=>{
+  CheckedDates=(dateDay,dateHours)=>{
 
     this.setState({
-                dateday: dateday,
-                datehours:datehours,
+                dateDay: dateDay,
+                dateHours:dateHours,
                 checked:true
             })
     
   }
 
-  InfoStorage=() => {
- var  infopreuser = {
-  festivalxuser: this.props.festival,
-  ongxuser: this.props.project.name,
-  datedayuser:this.state.dateday,
-  datehoursuser:this.state.datehours
+  collaborate=() => {
+
+  const userId = Xtorage.local.get('userId')
+
+ var  collaboration = {
+  festival: this.props.festival,
+  projectId: this.props.project._id,
+  dateDay:this.state.dateDay,
+  dateHours:this.state.dateHours
  }
 
- console.log(infopreuser)
+ console.log(collaboration)
 
-sessionStorage.setItem('infopreuser', JSON.stringify(infopreuser));
+ //sessionStorage.setItem('collaboration', JSON.stringify(collaboration));
 
-const userId= Xtorage.local.get('userId')
-
-axiosApi.postLocalInfoandUser(userId,infoStorage.festivalxuser,infoStorage.ongxuser,infoStorage.datedayuser,infoStorage.datehoursuser)
+axiosApi.collaborate(userId,collaboration.festival._id,collaboration.projectId,collaboration.dateDay,collaboration.dateHours)
 }
 
 
@@ -72,13 +73,13 @@ axiosApi.postLocalInfoandUser(userId,infoStorage.festivalxuser,infoStorage.ongxu
                                     <div className="modal-body">
                                       <div>
                                         <h4 className="modal-title  text-center">ONG SELECCIONADA: {this.props.project.name}</h4>
-                                        <span>FECHA ESCOGIDA: {this.state.dateday}</span><br/>
-                                        <span>HORAS DE VOLUNTARIADO:{this.state.datehours}</span>
+                                        <span>FECHA ESCOGIDA: {this.state.dateDay}</span><br/>
+                                        <span>HORAS DE VOLUNTARIADO:{this.state.dateHours}</span>
                                       </div>
                                       <div className="row">
                                           <div className="col-12-xs text-center">
                                              <Link to='/register/'> <button  className="btn btn-success btn-md but" data-dismiss="modal"
-                                              onClick={() => this.InfoStorage()}>Si</button></Link>
+                                              onClick={() => this.collaborate()}>Si</button></Link>
                                               <button className="btn btn-danger btn-md but" data-dismiss="modal">No</button>
                                           </div>
                                       </div>

@@ -8,25 +8,18 @@ class Home extends Component{
   constructor(){
       super()
       this.state={
-        Festival_name: '',
-        projects: []
+        festival : {}
       }
     }
 
-  activefestival = (festival)=>{
-    console.log("estoy estando")
-    this.setState({
-     Festival_name:festival
-    })
-    axiosApi.searchProjects(festival)
-      .then((data) =>{
-        console.log(data.data.data[0].projectes)
+  chooseFestival = (festivalName)=>{
+    axiosApi.retrieveFestivalByName(festivalName)
+      .then((festival) =>{
         this.setState({
-            projects: data.data.data[0].projectes
+            festival: festival
         })
         console.log(this.state)
       })
-
   }
 
 
@@ -35,13 +28,13 @@ class Home extends Component{
 			<article className=" central  col-sm-8">
             <div className="choose text-center "><h2>CHOOSE A MUSIC EVENT</h2></div>
             <div className="festis text-center">
-              <a onClick={() => this.activefestival('Cruilla2018')}><img  className="crimg" src="images/cruillalogo.jpg" alt="Social Beats" /></a>
-               <a onClick={()=>this.activefestival('Sonar 2018')}><img  className="soimg" src="images/sonarlogo.png" alt="Social Beats" /></a>
-               <a onClick={()=>this.activefestival('Primavera Sound 2018')}><img className="primg" src="images/primaveralogo.jpg" alt="Social Beats" /></a>
+              <a onClick={() => this.chooseFestival('Cruilla2018')}><img  className="crimg" src="images/cruillalogo.jpg" alt="Social Beats" /></a>
+               <a onClick={()=>this.chooseFestival('Sonar 2018')}><img  className="soimg" src="images/sonarlogo.png" alt="Social Beats" /></a>
+               <a onClick={()=>this.chooseFestival('Primavera Sound 2018')}><img className="primg" src="images/primaveralogo.jpg" alt="Social Beats" /></a>
             </div>
-           {this.state.projects.length ? <div className=" voluntariados text-center"><h2>CHOOSE A VOLUNTEER PROJECT</h2></div> : ''
+           {this.state.festival.projects.length ? <div className=" voluntariados text-center"><h2>CHOOSE A VOLUNTEER PROJECT</h2></div> : ''
             }
-            {this.state.projects.length && this.state.projects.map((project,i) => <Projects key={i} project={project}  festival={this.state.Festival_name}/>)
+            {this.state.festival.projects.length && this.state.festival.projects.map((project,i) => <Projects key={i} project={project}  festival={this.state.festival}/>)
            }
       </article>
       )
