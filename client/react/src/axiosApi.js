@@ -18,7 +18,7 @@ const  axiosApi = {
 
 
 	postLocalInfoandUser : function (userId,festivalxuser,ongxuser,datedayuser,datehoursuser){
-		return axios.post(this.baseUrl + '/localinfo/', {userId,festivalxuser,ongxuser,datedayuser,datehoursuser})
+		return axios.post(this.baseUrl + '/collaborations', {userId,festivalxuser,ongxuser,datedayuser,datehoursuser})
 		.then((localstdata)=>{
 			return localstdata
 		})

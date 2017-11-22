@@ -5,6 +5,8 @@ import {BrowserRouter} from 'react-router-dom'
 
 import Xtorage from  './Components/Xtorage'
 
+Xtorage.local.set('userId','5a09b909de937d39a73c39dc')
+
 
 
 
