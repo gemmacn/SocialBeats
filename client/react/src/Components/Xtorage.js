@@ -24,7 +24,7 @@ class Xtorage {
 	}
 
 	setObject(key, obj) {
-		this.set(JSON.stringify(obj))
+		this.set(key, JSON.stringify(obj))
 	}
 
 	static session = new Xtorage(sessionStorage)
