@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {HashRouter, Link, Route} from 'react-router-dom'
+import {HashRouter, Link, Route, Redirect} from 'react-router-dom'
 import '../styles/main.css';
 import axiosApi from '../axiosApi'
 import Xtorage from './Xtorage'
@@ -10,7 +10,8 @@ class Projects extends Component{
     super(props)
     this.state={
           checked: false,
-          date:''
+          date:'',
+          redirect: false 
         }
 
   }
@@ -27,27 +28,30 @@ class Projects extends Component{
 
   collaborate=() => {
 
-  const userId = Xtorage.local.get('userId')
+    const userId = Xtorage.local.get('userId')
 
- var  collaboration = {
-  festival: this.props.festival,
-  projectId: this.props.project._id,
-  dateDay:this.state.dateDay,
-  dateHours:this.state.dateHours
- }
 
- console.log(collaboration)
+   var  collaboration = {
+    festival: this.props.festival,
+    projectId: this.props.project._id,
+    dateDay:this.state.dateDay,
+    dateHours:this.state.dateHours
+   }
+    Xtorage.local.setObject('collaboration', collaboration)
+   console.log('hola jalbert')
 
- //sessionStorage.setItem('collaboration', JSON.stringify(collaboration));
+   //sessionStorage.setItem('collaboration', JSON.stringify(collaboration));
 
-axiosApi.collaborate(userId,collaboration.festival._id,collaboration.projectId,collaboration.dateDay,collaboration.dateHours)
+  axiosApi.collaborate(userId,collaboration.festival._id,collaboration.projectId,collaboration.dateDay,collaboration.dateHours)
+  this.setState({redirect: true})
 }
 
 
 
 	render(){
     console.log(this.props.project.available_dates,'hola')
-		return (
+    if(this.state.redirect) return <Redirect to='/register/' />
+    else return (
        <section className="festprojects">
               <div className="ong ong1"><h3>{this.props.project.name}</h3><br />
               <span>{this.props.project.description}</span>
@@ -63,12 +67,12 @@ axiosApi.collaborate(userId,collaboration.festival._id,collaboration.projectId,c
               </ul>
               </div>
               <button className="btn  btn-xs but" type="button" 
-              data-toggle="modal" data-target={"#confirmInfo-" + this.state.id}> Apuntarme!</button>
-                  <div id={"confirmInfo-" + this.state.id} className="modal fade" role="dialog">
+              data-toggle="modal" data-target={"#confirmInfo-" + this.state.checked}> Apuntarme!</button>
+                  <div id={"confirmInfo-" + this.state.checked} className="modal fade" role="dialog">
                                 <div className="modal-dialog">
                                   <div className="modal-content">
                                     <div className="modal-header">
-                                      <h4 className="modal-title  text-center">EVENTO: {this.props.festival}</h4>
+                                      <h4 className="modal-title  text-center">EVENTO: {this.props.festival.name}</h4>
                                     </div>
                                     <div className="modal-body">
                                       <div>
@@ -78,7 +82,7 @@ axiosApi.collaborate(userId,collaboration.festival._id,collaboration.projectId,c
                                       </div>
                                       <div className="row">
                                           <div className="col-12-xs text-center">
-                                             <Link to='/register/'> <button  className="btn btn-success btn-md but" data-dismiss="modal"
+                                             <Link to='/register/'><button  className="btn btn-success btn-md but" data-dismiss="modal"
                                               onClick={() => this.collaborate()}>Si</button></Link>
                                               <button className="btn btn-danger btn-md but" data-dismiss="modal">No</button>
                                           </div>

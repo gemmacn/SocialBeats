@@ -47,7 +47,7 @@ app.get('/festivals/name/:festivalName', (req,res)=>{
 app.post('/festival/:festivalId/project/:projectId/collaborate', (req, res) => {
 	const {festivalId, projectId} = req.params
 	const  {userId,dateDay,dateHours} = req.body
-
+	console.log(req.body)
 	userData.retrieveUserById(userId)
 		.then(user => {
 			for (let i = 0; i < user.collaborations.length; i++) {

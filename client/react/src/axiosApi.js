@@ -13,12 +13,13 @@ const  axiosApi = {
 			console.error(err)
 		})
 
-	}
+	},
 
 
 
-	collaborate : function (userId,festivalId,projectId,dateDay,dateHours){
-		return axios.post(this.baseUrl + '/festival/' + festivalId + '/project/' + projectId + '/collaborate', {userId,dateDay,dateHours})
+	collaborate : function (userId, festivalId, projectId, dateDay, dateHours) {
+		return axios.post(this.baseUrl + '/festival/' + festivalId + '/project/' + projectId + '/collaborate',
+		{userId, dateDay, dateHours})
 		.then((localstdata)=>{
 			return localstdata
 		})

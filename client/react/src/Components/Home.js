@@ -8,15 +8,15 @@ class Home extends Component{
   constructor(){
       super()
       this.state={
-        festival : {}
+        festival : {projectes:[]}
       }
     }
 
   chooseFestival = (festivalName)=>{
     axiosApi.retrieveFestivalByName(festivalName)
-      .then((festival) =>{
+      .then((resp) =>{
         this.setState({
-            festival: festival
+            festival: resp.data
         })
         console.log(this.state)
       })
@@ -32,9 +32,9 @@ class Home extends Component{
                <a onClick={()=>this.chooseFestival('Sonar 2018')}><img  className="soimg" src="images/sonarlogo.png" alt="Social Beats" /></a>
                <a onClick={()=>this.chooseFestival('Primavera Sound 2018')}><img className="primg" src="images/primaveralogo.jpg" alt="Social Beats" /></a>
             </div>
-           {this.state.festival.projects.length ? <div className=" voluntariados text-center"><h2>CHOOSE A VOLUNTEER PROJECT</h2></div> : ''
+           {this.state.festival.projectes.length ? <div className=" voluntariados text-center"><h2>CHOOSE A VOLUNTEER PROJECT</h2></div> : ''
             }
-            {this.state.festival.projects.length && this.state.festival.projects.map((project,i) => <Projects key={i} project={project}  festival={this.state.festival}/>)
+            {this.state.festival.projectes.length && this.state.festival.projectes.map((project,i) => <Projects key={i} project={project}  festival={this.state.festival}/>)
            }
       </article>
       )

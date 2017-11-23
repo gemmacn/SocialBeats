@@ -1,15 +1,49 @@
 import React, { Component } from 'react';
 import {BrowserRouter, Switch, Route} from 'react-router-dom'
 import '../styles/register.css';
-
+import  Projects from './Projects'
+import Xtorage from './Xtorage'
 
 class Register extends Component{
+   constructor(props){
+    super(props)
+  }
+
+
+ componentWillMount(){
+ this.collaboration = Xtorage.local.getObject('collaboration')
+ console.log(this.collaboration)
+
+this.projectName = this.collaboration.festival.projectes.reduce((acc, project) => {
+  if (project._id === this.collaboration.projectId) acc += project.name
+  return acc
+}, '')// Com que tinc el Id del projecte triat, i els projectes dins d'un array, recorrem l'array buscant aquell Id que tenim i treiem el nom del 
+//projecte que correspon al Id amb el metode reduce 
+
+
+
+  } // al poner el this. delante em treu el valor de la variable 
+  //per a tot el component.
+
+
+
+
+
+
+
 	render(){
 		return (
  <div className="col-sm-8">
         <div className="container">
           <div className="row">
             <form className="form-horizontal">
+            <div>
+            {this.collaboration.festival.name}<br/>
+            {this.projectName}<br/>
+            {this.collaboration.dateDay}<br/>
+            {this.collaboration.dateHours}
+
+            </div>
               <fieldset>
                 {/* Form Name */}
                 <legend><h3>FORMULARIO REGISTRO</h3></legend>
@@ -24,14 +58,14 @@ class Register extends Component{
                 <div className="form-group">
                   <label className="col-md-4 control-label" htmlFor="passwordinput">Password</label>
                   <div className="col-md-5">
-                    <input id="passwordinput" name="passwordinput" type="password" placeholder className="form-control input-md" required />
+                    <input id="passwordinput" name="passwordinput" type="password"  className="form-control input-md" required />
                     <span className="help-block">max 16 characters</span>
                   </div>
                 </div>
                 <div className="form-group">
                   <label className="col-md-4 control-label" htmlFor="dni">DNI/NIE</label>
                   <div className="col-md-5">
-                    <input id="dniinput" name="dniinput" type="dni" placeholder className="form-control input-md" required />
+                    <input id="dniinput" name="dniinput" type="dni"  className="form-control input-md" required />
                   </div>
                 </div>
                 {/* Password input*/}
@@ -55,26 +89,7 @@ class Register extends Component{
                     </label>
                   </div>
                 </div>
-                {/* Textarea */}
-                <div className="form-group">
-                  <label className="col-md-4 control-label" htmlFor="address">Address</label>
-                  <div className="col-md-4">                     
-                    <textarea className="form-control" id="address" name="address" defaultValue={"default text"} />
-                  </div>
-                </div>
-                {/* Select Basic */}
-                <div className="form-group">
-                  <label className="col-md-4 control-label" htmlFor="country">Country</label>
-                  <div className="col-md-5">
-                    <select id="country" name="country" className="form-control">
-                      <option value="España">España</option>
-                      <option value="Francia">Francia</option>
-                      <option value="Andorra">Andorra</option>
-                      <option value="Portugal">Portugal</option>
-                      <option value="Italia">Italia</option>
-                    </select>
-                  </div>
-                </div>
+
                 {/* Text input*/}
                 <div className="form-group">
                   <label className="col-md-4 control-label" htmlFor="mobilenumber">Mobile Number</label>  
@@ -84,7 +99,7 @@ class Register extends Component{
                 </div>
                 {/* Text input*/}
                 <div className="form-group">
-                  <label className="col-md-4 control-label" htmlFor="emailId">Email Id</label>  
+                  <label className="col-md-4 control-label" htmlFor="emailId">Email </label>  
                   <div className="col-md-6">
                     <input id="emailId" name="emailId" type="text" placeholder="user@domain.com" className="form-control input-md" required />
                   </div>

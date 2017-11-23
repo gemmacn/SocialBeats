@@ -10,9 +10,9 @@ const Users = new Schema({
     "mail":String,
     "collaborations": [
 	    {
-	        "festival":Number,
-	        "project": Number,
-	        "date": Date,
+	        "festival":String,
+	        "project": String,
+	        "date": String,
 	        "hours": Number,
 	        "status": String
 	    }

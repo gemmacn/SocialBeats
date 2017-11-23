@@ -8,12 +8,22 @@ class UsersData {
 	}
 
 	retrieveUserById(userId){
-		return UserModel.findById(userId).exec()
+		return UsersModel.findById(userId).exec()
 	}
 
 	subscribeUserToFestivalCollaboration(userId, festivalId, projectId, dateDay, dateHours) {
-		// TODO findOneAndUpdate
+	const collaboration ={
+		festival:festivalId,
+		project: projectId,
+		date: dateDay,
+		hours: dateHours,
+		status: 'PENDING'
 	}
+	return UsersModel.findOneAndUpdate({_id:userId},
+	{$push:{collaborations:collaboration}}).exec()
+}
 }
 
 module.exports = UsersData
+
+
