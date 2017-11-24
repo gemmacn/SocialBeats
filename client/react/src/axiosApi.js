@@ -20,8 +20,8 @@ const  axiosApi = {
 	collaborate : function (userId, festivalId, projectId, dateDay, dateHours) {
 		return axios.post(this.baseUrl + '/festival/' + festivalId + '/project/' + projectId + '/collaborate',
 		{userId, dateDay, dateHours})
-		.then((localstdata)=>{
-			return localstdata
+		.then((localdata)=>{
+			return localdata
 		})
 		.catch((err)=>{
 			console.error(err)

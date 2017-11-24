@@ -11,7 +11,8 @@ class Projects extends Component{
     this.state={
           checked: false,
           date:'',
-          redirect: false 
+          redirect: false,
+          status:''
         }
 
   }
@@ -43,10 +44,12 @@ class Projects extends Component{
    //sessionStorage.setItem('collaboration', JSON.stringify(collaboration));
 
   axiosApi.collaborate(userId,collaboration.festival._id,collaboration.projectId,collaboration.dateDay,collaboration.dateHours)
-  this.setState({redirect: true})
+  .then((response) =>{response.data.status ==='KO' ?  this.setState({status:'KO'}) : this.setState({redirect: true})})
+  .catch(console.error)
 }
 
-
+// {this.state.festival.projectes.length && this.state.festival.projectes.map((project,i) => <Projects key={i} project={project}  festival={this.state.festival}/>)
+           
 
 	render(){
     console.log(this.props.project.available_dates,'hola')
@@ -86,6 +89,7 @@ class Projects extends Component{
                                               onClick={() => this.collaborate()}>Si</button></Link>
                                               <button className="btn btn-danger btn-md but" data-dismiss="modal">No</button>
                                           </div>
+                                           {this.state.status ==='KO' ? <div>No puedes participar mas</div> : <div> Si puedes participar</div>}
                                       </div>
                                     </div>
                                   </div>
@@ -94,6 +98,7 @@ class Projects extends Component{
 
               </div>
       </section>
+
 )
 	}
 

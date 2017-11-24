@@ -7,8 +7,21 @@ import Xtorage from './Xtorage'
 class Register extends Component{
    constructor(props){
     super(props)
+     // this.state={
+     //      name: '',
+     //      password:'',
+     //      DNI: '',
+     //      Gender: '',
+     //      Mobil:,
+     //      mail:'',
+     //    }
   }
 
+// onChange = (e)=>{
+// this.setState({
+//   name: 
+// })
+// }
 
  componentWillMount(){
  this.collaboration = Xtorage.local.getObject('collaboration')
@@ -24,10 +37,6 @@ this.projectName = this.collaboration.festival.projectes.reduce((acc, project) =
 
   } // al poner el this. delante em treu el valor de la variable 
   //per a tot el component.
-
-
-
-
 
 
 
