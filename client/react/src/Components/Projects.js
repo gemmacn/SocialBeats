@@ -27,6 +27,10 @@ class Projects extends Component{
     
   }
 
+  tryCollaboration = () => {
+    this.setState({status: undefined})
+  }
+
   collaborate=() => {
 
     const userId = Xtorage.local.get('userId')
@@ -44,7 +48,7 @@ class Projects extends Component{
    //sessionStorage.setItem('collaboration', JSON.stringify(collaboration));
 
   axiosApi.collaborate(userId,collaboration.festival._id,collaboration.projectId,collaboration.dateDay,collaboration.dateHours)
-  .then((response) =>{response.data.status ==='KO' ?  this.setState({status:'KO'}) : this.setState({redirect: true})})
+  .then((response) =>{response.data.status ==='KO' ?  this.setState({status:'KO'}) : this.setState({status:'OK'}) /*this.setState({redirect: true})*/})
   .catch(console.error)
 }
 
@@ -70,8 +74,8 @@ class Projects extends Component{
               </ul>
               </div>
               <button className="btn  btn-xs but" type="button" 
-              data-toggle="modal" data-target={"#confirmInfo-" + this.state.checked}> Apuntarme!</button>
-                  <div id={"confirmInfo-" + this.state.checked} className="modal fade" role="dialog">
+              data-toggle="modal" data-target={"#confirmInfo-" + this.props.project._id} onClick={this.tryCollaboration}> Apuntarme!</button>
+                  <div id={"confirmInfo-" + this.props.project._id} className="modal fade" role="dialog">
                                 <div className="modal-dialog">
                                   <div className="modal-content">
                                     <div className="modal-header">
@@ -85,11 +89,10 @@ class Projects extends Component{
                                       </div>
                                       <div className="row">
                                           <div className="col-12-xs text-center">
-                                             <Link to='/register/'><button  className="btn btn-success btn-md but" data-dismiss="modal"
-                                              onClick={() => this.collaborate()}>Si</button></Link>
-                                              <button className="btn btn-danger btn-md but" data-dismiss="modal">No</button>
+                                            {!this.state.status? <button className="btn btn-success btn-md but" 
+                                              onClick={this.collaborate}>Si</button> : this.state.status ==='KO' ? <div>No puedes participar mas</div> : <div> Si puedes participar</div>}
+                                              <button className={!this.state.status? 'btn btn-danger btn-md but' : this.state.status ==='KO' ? 'btn btn-danger btn-md but' : 'btn btn-success btn-md but'} data-dismiss="modal">{!this.state.status? 'No' : 'Aceptar'}</button>
                                           </div>
-                                           {this.state.status ==='KO' ? <div>No puedes participar mas</div> : <div> Si puedes participar</div>}
                                       </div>
                                     </div>
                                   </div>
