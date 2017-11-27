@@ -34,6 +34,11 @@ Hacer un archivo .gitignore para el node_modules
 
 (en algun punto he de fer un arxiu .env pq heroku vol triar ell el port i fer el install dotenv --save)
 
+la Url de les trucades s'ha de canviar de localhost:3000 a : 
+'https://obscure-stream-32522.herokuapp.com', basicament a la ruta de la api 
+
 4. npm run build ----> en la carpeta de REACT  te crea una carpeta Build que le cambiamos el nombre a Public, para servir contenido estático. Esta carpeta Build la movemos a dentro de la carpeta app, donde creamos un nuevo servidor de express ( npm init + npm install express --save + rpm start)
 
 git push heroku master
+
+

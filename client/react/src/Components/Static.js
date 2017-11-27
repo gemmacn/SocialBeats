@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom'
 import NavBar from './NavBar'
+import '../styles/static.css';
 
 
 class Static extends Component{

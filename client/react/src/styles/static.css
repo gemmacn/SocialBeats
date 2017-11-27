@@ -1,0 +1,39 @@
+@font-face {
+	font-family: 'Impact';
+	src: url('/styles/fonts/impact.ttf');
+	format:('truetype');
+
+}
+
+div .tittle {
+	padding:5%;
+	border: 1px solid white;
+	text-decoration: underline;
+	text-decoration-color: white;
+}
+div .tittle:hover {
+	border: 1px solid black;
+	text-decoration: underline;
+	text-decoration-color: black;
+	color:black;
+	background-color: white;
+}
+
+div .descrip {
+	 font-family: 'Impact';
+	 font-size: 80px;
+}
+.text1, .text2{
+	border: 1px solid white;
+	padding:5%;
+}
+
+.text1:hover, .text2:hover{
+	border: 1px solid black;
+	color:black;
+	background-color: white;
+	padding:5%;
+}
+
+
+

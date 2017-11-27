@@ -1,0 +1,40 @@
+.regprev{
+	margin:2%;
+}
+
+.regprev h3{
+margin: auto auto;
+display:inline;
+}
+
+@media only screen and (max-width : 1200px) {
+
+}
+
+@media only screen and (max-width : 979px) {
+
+
+}
+
+@media only screen and (max-width : 767px) {
+
+}
+
+@media only screen and (max-width : 480px) {
+
+}
+
+@media only screen and (max-width : 320px) {
+.regprev h3{
+margin: auto auto;
+display:block;
+font-size:20px;
+font-family: Open Sans;
+
+}
+
+.regtittle{
+	margin-left:5%;
+}
+
+}

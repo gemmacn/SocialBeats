@@ -46,14 +46,14 @@ app.get('/festivals/name/:festivalName', (req,res)=>{
 
 app.post('/festival/:festivalId/project/:projectId/collaborate', (req, res) => {
 	const {festivalId, projectId} = req.params
-	const  {userId,dateDay,dateHours} = req.body
+	const  {userId,dateDay,dateHours} = req.body // destructuring de javascript
 	console.log(req.body)
 	userData.retrieveUserById(userId)
 		.then(user => {
 			for (let i = 0; i < user.collaborations.length; i++) {
 				const collaboration = user.collaborations[i]
 
-				if (collaboration.festival == festivalId) {
+				if (collaboration.festival == festivalId) { //Pq collaboration.festival en la BD ja es l'ID del festival, estem a la resposta ara
 					return res.json({
 						status: 'KO',
 						message: 'user already collaborates with this festival'

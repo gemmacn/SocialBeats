@@ -8,8 +8,9 @@ class Home extends Component{
   constructor(){
       super()
       this.state={
-        festival : {projectes:[]}
-      }
+        festival : {projectes:[]}//Especifico la forma de festival.projectes per poder 
+        // a sota veure quin length te i treballar condicions sobre el length del array. 
+      }//Li dic que festival es un objecte que te un array projectes, que ara sta buit
     }
 
   chooseFestival = (festivalName)=>{
@@ -28,13 +29,13 @@ class Home extends Component{
 			<article className=" central  col-sm-8">
             <div className="choose text-center "><h2>CHOOSE A MUSIC EVENT</h2></div>
             <div className="festis text-center">
-              <a onClick={() => this.chooseFestival('Cruilla2018')}><img  className="crimg" src="images/cruillalogo.jpg" alt="Social Beats" /></a>
-               <a onClick={()=>this.chooseFestival('Sonar 2018')}><img  className="soimg" src="images/sonarlogo.png" alt="Social Beats" /></a>
-               <a onClick={()=>this.chooseFestival('Primavera Sound 2018')}><img className="primg" src="images/primaveralogo.jpg" alt="Social Beats" /></a>
+              <a onClick={() => this.chooseFestival('Cruilla2018')}><img  className=" cursorPointer crimg" src="images/cruillalogo.jpg" alt="Social Beats" /></a>
+               <a onClick={()=>this.chooseFestival('Sonar 2018')}><img  className=" cursorPointer soimg" src="images/sonarlogo.jpg" alt="Social Beats" /></a>
+               <a onClick={()=>this.chooseFestival('Primavera Sound 2018')}><img className=" cursorPointer primg" src="images/primaveralogo.jpg" alt="Social Beats" /></a>
             </div>
-           {this.state.festival.projectes.length ? <div className=" voluntariados text-center"><h2>CHOOSE A VOLUNTEER PROJECT</h2></div> : ''
+           {this.state.festival.projectes.length ? <div className="voluntariados text-center">CHOOSE A VOLUNTEER PROJECT</div> : ''
             }
-            {this.state.festival.projectes.length && this.state.festival.projectes.map((project,i) => <Projects key={i} project={project}  festival={this.state.festival}/>)
+            {this.state.festival.projectes.length ? this.state.festival.projectes.map((project,i) => <Projects key={i} project={project}  festival={this.state.festival}/>) : undefined
            }
       </article>
       )
