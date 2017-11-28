@@ -140,6 +140,24 @@ app.get('/users', (req,res)=>{
 			})
 		})
 })
+app.get('/users/:userId', (req,res)=>{
+	var  userId = req.params.userId
+	UsersData.retrieveUserById(userId)
+		.then(user => {
+			console.log(user)
+			res.status(200).json({
+				status: 'OK',
+		        message: 'users listed successfully',
+		        data: user
+			})
+		})
+		.catch(err => {
+			res.status(404).json({
+				status: 'KO',
+		        message: err.message
+			})
+		})
+})
 
 app.get('/ongs', (req,res)=>{
 	OngData.listAllTheOng()

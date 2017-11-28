@@ -38,6 +38,17 @@ const  axiosApi = {
 		.catch((err)=>{
 			console.error(err)
 		})
+	},
+
+
+	getUserProfile: function(userId){
+		return axios.get(this.baseUrl +'/users/' + userId)
+		.then((res)=>{
+			return res// pq axios ja posa l¡objecte dins d'un data
+		})
+		.catch( (err) => {
+			console.error(err)
+		})
 	}
 
 }

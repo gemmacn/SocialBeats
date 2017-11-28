@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {BrowserRouter, Switch, Route} from 'react-router-dom'
+import {BrowserRouter, Switch,Link,Route} from 'react-router-dom'
 import '../styles/register.css';
 import '../styles/main.css';
 import  Projects from './Projects'
@@ -165,7 +165,7 @@ userCompleteInfo = (completedUser)=>{
                       <div className="form-group">
                         <label className="col-md-4 control-label" htmlFor="submit" />
                         <div className="col-md-4">
-                          <button type="submit"  name="submit" value="Submit" className="btn botoncin">Submit</button>
+                          <Link to ='/profile'><button type="submit"  name="submit" value="Submit" className="btn botoncin">Submit</button></Link>
                         </div>
                       </div>
                         </form>

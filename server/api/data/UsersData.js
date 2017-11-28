@@ -8,7 +8,7 @@ class UsersData {
 	}
 
 	retrieveUserById(userId){
-		return UsersModel.findById(userId).exec()
+		return UsersModel.findOne({_id:userId}).exec()
 	}
 
 	subscribeUserToFestivalCollaboration(userId, festivalId, projectId, dateDay, dateHours) {
@@ -25,7 +25,6 @@ class UsersData {
 
 setProfile(completedUser){
 	const usersModel = new UsersModel(completedUser)
-
 	return usersModel.save()
 }
 }
