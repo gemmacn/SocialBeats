@@ -6,14 +6,17 @@ const Users = new Schema({
     "surname": String,
     "username": String,
     "password": String,
-    "nif": String,
+    "confirm_password":String,
+    "dni": String,
+    "mobile": String,
     "mail":String,
     "collaborations": [
 	    {
 	        "festival":String,
 	        "project": String,
-	        "date": String,
-	        "hours": Number,
+            "projectId":String,
+	        "dateDay": String,
+	        "dateHours": Number,
 	        "status": String
 	    }
     ]

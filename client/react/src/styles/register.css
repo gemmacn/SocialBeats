@@ -7,21 +7,54 @@ margin: auto auto;
 display:inline;
 }
 
-@media only screen and (max-width : 1200px) {
+.navBar{
+	display:none;
+}
 
+@media only screen and (max-width : 1200px) {
+  .descrip{height: 124px;}
 }
 
 @media only screen and (max-width : 979px) {
+.regprev h3{display:block;}
+.generalform{
+	width:50%;
 
+}
 
 }
 
 @media only screen and (max-width : 767px) {
+.text1,.text2,.ahead{
+	padding:3%;
+}
 
+.regprev h3{display:block;}
+.navBar{
+	display:none;
+}
+.regtittle{
+	margin-left:25%;
+}
+
+.generalform{
+	width:70%;
+	margin:auto auto;
+}
 }
 
 @media only screen and (max-width : 480px) {
+.regprev h3{display:block;}
 
+.regtittle{
+	margin-left:15%;
+}
+.text1{
+	display:none;
+}
+.navBar{
+	display:none;
+}
 }
 
 @media only screen and (max-width : 320px) {
@@ -34,7 +67,13 @@ font-family: Open Sans;
 }
 
 .regtittle{
-	margin-left:5%;
+	margin-left:15%;
+}
+.text1{
+	display:none;
+}
+.navBar{
+	display:none;
 }
 
 }

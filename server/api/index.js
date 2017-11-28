@@ -10,7 +10,7 @@ const bodyParser= require('body-parser')
 
 const ongData = new(require('./data/OngData.js'))
 const festivalsData = new(require('./data/FestivalsData.js'))
-const userData = new(require('./data/UsersData.js'))
+
 
 app.use(bodyParser.json())
 app.use(cors())
@@ -48,7 +48,7 @@ app.post('/festival/:festivalId/project/:projectId/collaborate', (req, res) => {
 	const {festivalId, projectId} = req.params
 	const  {userId,dateDay,dateHours} = req.body // destructuring de javascript
 	console.log(req.body)
-	userData.retrieveUserById(userId)
+	UsersData.retrieveUserById(userId)
 		.then(user => {
 			for (let i = 0; i < user.collaborations.length; i++) {
 				const collaboration = user.collaborations[i]
@@ -61,7 +61,7 @@ app.post('/festival/:festivalId/project/:projectId/collaborate', (req, res) => {
 				}
 			}
 
-			userData.subscribeUserToFestivalCollaboration(userId, festivalId, projectId, dateDay, dateHours)
+			UsersData.subscribeUserToFestivalCollaboration(userId, festivalId, projectId, dateDay, dateHours)
 				.then(() => {
 					res.json({
 						status: 'OK',
@@ -193,8 +193,7 @@ festival.save()
 
 app.post('/collaborations',(req,res)=>{
  const {userId,festivalxuser,ongxuser,datedayuser,datehoursuser} = req.body
-
- UserData.retrieveOneUser(userId)
+UsersData.retrieveOneUser(userId)
  .then((user)=>{
  	console.log(user)
  	user.some(user._id ===userId)
@@ -203,6 +202,19 @@ app.post('/collaborations',(req,res)=>{
  .catch((err)=>{})
 
 
+})
+app.post('/setprofile',(req,res)=>{
+	const{completedUser} =req.body
+UsersData.setProfile(completedUser)
+ .then(profile => res.json({
+                status: 'OK',
+                message: 'profile created successfully',
+                data: profile
+            }))
+            .catch(err => res.json({
+                status: 'KO',
+                message: err.message
+            }))
 })
 
 

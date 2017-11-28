@@ -13,7 +13,7 @@ constructor(props){
           checked: false,
           date:'',
           redirect: false,
-          status:''
+          status:'OK'
         }
 
 }
@@ -30,20 +30,21 @@ CheckedDates=(dateDay,dateHours)=>{
 collaborate=() => {
       const userId = Xtorage.local.get('userId')
   //el xtorage.local.set el faig en el Index.js de React. Aquí recupero el id del usuari
-
+      const { name}  = this.props.festival.projectes.filter(project => this.props.project._id === project._id)[0]
      var  collaboration = {
-      festival: this.props.festival,
+      festival: this.props.festival.name,
+      project: name,
       projectId: this.props.project._id,
       dateDay:this.state.dateDay,
       dateHours:this.state.dateHours
      }
       Xtorage.local.setObject('collaboration', collaboration) //('key',value) es el format del localstorage
-     console.log('hola jalbert')
+     console.log(collaboration, 'localstorage')
 
 
-    axiosApi.collaborate(userId,collaboration.festival._id,collaboration.projectId,collaboration.dateDay,collaboration.dateHours)
-    .then((response) =>{response.data.status ==='KO' ?  this.setState({status:'KO'}) : this.setState({status:'OK'}) /*this.setState({redirect: true})*/})
-    .catch(console.error)
+    // axiosApi.collaborate(userId,collaboration.festival._id,collaboration.projectId,collaboration.dateDay,collaboration.dateHours)
+    // .then((response) =>{response.data.status ==='KO' ?  this.setState({status:'KO'}) : this.setState({status:'OK'}) /*this.setState({redirect: true})*/})
+    // .catch(console.error)
 }
 
 tryCollaboration = () => {
@@ -75,19 +76,19 @@ tryCollaboration = () => {
                                 <div className="modal-dialog">
                                   <div className="modal-content">
                                     <div className="modal-header">
-                                      <h3 className="modal-title  text-center">EVENTO: {this.props.festival.name}</h3>
+                                      <h3 className="modal-title  text-center"> {this.props.festival.name}</h3>
                                     </div>
                                     <div className="modal-body">
                                       <div>
-                                        <h3 className="modal-title  text-center">ONG SELECCIONADA: {this.props.project.name}</h3>
+                                        <h3 className="modal-title ">ONG SELECCIONADA: {this.props.project.name}</h3>
                                         <h3>FECHA ESCOGIDA: {this.state.dateDay}</h3><br/>
-                                        <h3>HORAS DE VOLUNTARIADO:{this.state.dateHours}</h3>
+                                        <h3>HORAS DE VOLUNTARIADO: {this.state.dateHours}</h3>
                                       </div>
                                       <div className="row">
                                           <div className="col-12-xs text-center">
                                             {!this.state.status? <button className="btn botoncin  btn-md but" 
-                                              onClick={this.collaborate}>SI, SEGUIR</button> : this.state.status ==='KO' ? <div>Solo se puede participar una vez por cada  Festival, gracias</div> : <button className= "botoncin">Registrate para seguir</button>}
-                                              <button className={!this.state.status? 'btn  botoncin btn-md but' : this.state.status ==='KO' ? 'btn  botoncin btn-md but' : 'btn  botoncin btn-md but'} data-dismiss="modal">{!this.state.status? 'NO, VOLVER ATRÁS' : 'VOLVER AL INICIO'}</button>
+                                              onClick={this.collaborate}>SI, SEGUIR</button> : this.state.status ==='KO' ? <div>Solo se puede participar una vez por cada  Festival, gracias</div> : <Link to="/register"><button className= "botoncin">SEGUIR Y REGISTRARSE</button></Link>}
+                                              <button className="botoncin" className={!this.state.status? 'btn  botoncin btn-md but' : this.state.status ==='KO' ? 'btn  botoncin btn-md but' : 'btn  botoncin btn-md but'} data-dismiss="modal">{!this.state.status? 'NO, VOLVER ATRÁS' : 'VOLVER AL INICIO'}</button>
                                           </div>
                                       </div>
                                     </div>

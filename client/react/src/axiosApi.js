@@ -26,6 +26,18 @@ const  axiosApi = {
 		.catch((err)=>{
 			console.error(err)
 		})
+	},
+
+
+
+	UserProfile: function(completedUser){
+		return axios.post(this.baseUrl + '/setprofile',{completedUser})
+		.then((profiledata)=>{
+			return profiledata
+		})
+		.catch((err)=>{
+			console.error(err)
+		})
 	}
 
 }

@@ -56,7 +56,7 @@ div .tittle:hover {
 	background-color: white;
 }
 div .descrip {
-	border: 1px solid white;
+
 	height: 133px;
 	line-height: 90%;
 	 font-family: 'Impact';
@@ -68,16 +68,74 @@ div .descrip {
 .profile{
  -webkit-filter: grayscale(100%); 
   filter: grayscale(100%);
-background-color: white;
-
 }
  .perfil{
 
 padding-right:0 !important;
 }
 .perfil img{
-margin: 0 auto !important;
+margin-top:5%;
+margin-bottom:5%;
+width:20%;
+border-radius:50%;
+border:3px solid white;
+
 }
 .datos{
-	padding-left:0px !important;
+height:100%;
+font-size:20px;
+columns: 2;
+width:50%;
+}
+
+
+
+
+
+@media only screen and (max-width : 1200px) {
+
+}
+
+@media only screen and (max-width : 979px) {
+
+
+}
+
+@media only screen and (max-width : 767px) {
+.datos{
+height:100%;
+font-size:17px;
+columns: 2;
+width:50%;
+}
+.datos h3{
+	font-size:20px;
+}
+}
+
+@media only screen and (max-width : 480px) {
+.datos{
+height:100%;
+font-size:15px;
+columns: 1;
+width:50%;
+}
+.datos h3{
+	font-size:17px;
+}
+
+}
+
+@media only screen and (max-width : 320px) {
+
+.datos{
+height:100%;
+font-size:15px;
+columns: 1;
+width:50%;
+}
+.datos h3{
+	font-size:17px;
+}
+
 }

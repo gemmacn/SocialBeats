@@ -5,13 +5,13 @@
 
 }
 
-div .tittle {
+div .ahead {
 	padding:5%;
 	border: 1px solid white;
 	text-decoration: underline;
 	text-decoration-color: white;
 }
-div .tittle:hover {
+div .ahead:hover {
 	border: 1px solid black;
 	text-decoration: underline;
 	text-decoration-color: black;

@@ -22,6 +22,12 @@ class UsersData {
 	return UsersModel.findOneAndUpdate({_id:userId},
 	{$push:{collaborations:collaboration}}).exec()
 }
+
+setProfile(completedUser){
+	const usersModel = new UsersModel(completedUser)
+
+	return usersModel.save()
+}
 }
 
 module.exports = UsersData
