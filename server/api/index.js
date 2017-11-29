@@ -235,6 +235,21 @@ UsersData.setProfile(completedUser)
             }))
 })
 
+app.put('/users', (req,res)=>{
+	//var  userId = req.params.userId
+	const { logInInfo } =req.body
+	const { username, password, collaborations } = logInInfo// desestructuro la info rebuda pel body
+	UsersData.putlogInInfo(username, password, collaborations)
+			.then(login => res.json({
+                status: 'OK',
+                message: 'Logged  and updated festival successfully',
+                data: login
+            }))
+            .catch(err => res.json({
+                status: 'KO',
+                message: err.message
+            }))
+})
 
 
 app.delete('/deleteong/:ongId', (req,res) =>{

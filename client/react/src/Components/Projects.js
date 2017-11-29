@@ -13,7 +13,7 @@ constructor(props){
           checked: false,
           date:'',
           redirect: false,
-          status:'OK'
+          //status:'OK'
         }
 
 }
@@ -42,18 +42,33 @@ collaborate=() => {
      console.log(collaboration, 'localstorage')
 
 
-    axiosApi.collaborate(userId,collaboration.festival._id,collaboration.projectId,collaboration.dateDay,collaboration.dateHours)
-    .then((response) =>{response.data.status ==='OK' ?  this.setState({status:'KO'}) : this.setState({status:'OK'}) /*this.setState({redirect: true})*/})
-    .catch(console.error)
+    // axiosApi.collaborate(userId,collaboration.festival._id,collaboration.projectId,collaboration.dateDay,collaboration.dateHours)
+    // .then((response) =>{response.data.status ==='OK' ?  this.setState({status:'KO'}) : this.setState({status:'OK'}) /*this.setState({redirect: true})*/})
+    // .catch(console.error)
 }
-
-tryCollaboration = () => {
-   this.setState({status: undefined})// me limpia el estado de la llamada axios anterior, la llamo desde el boton Apuntame
-}
-
-onRegister = ()=>{
+register = ()=>{
   this.props.history.push('/register');
 }
+login = ()=>{
+  this.props.history.push('/login');
+}
+homeBack =()=>{
+this.props.history.push('/');
+}
+onLogin=()=>{
+  this.collaborate();
+  this.login();
+}
+
+onRegister=()=>{
+  this.collaborate();
+  this.register();
+}
+
+// tryCollaboration = () => {
+//    this.setState({status: undefined})// me limpia el estado de la llamada axios anterior, la llamo desde el boton Apuntame
+// }
+
 
 	render(){
     console.log(this.props.project.available_dates,'hola')
@@ -88,18 +103,12 @@ onRegister = ()=>{
                                       </div>
                                       <div className="row">
                                           <div className="col-12-xs text-center">
-                                            {!this.state.status? <button className="btn botoncin  btn-md but" 
-                                              onClick={this.collaborate}>OK, LET'S DO IT</button> : 
-                                              this.state.status ==='KO' ? 
-                                              <div>Solo se puede participar una vez por cada  Festival, gracias</div> : 
-                                             <button className= "botoncin" onClick={this.onRegister} data-dismiss="modal"> REGISTER ME</button>}
-                                              <button className="botoncin" className={!this.state.status ? 
-                                                'btn  botoncin btn-md but' :
-                                                this.state.status ==='KO' ? 
-                                                'btn  botoncin btn-md but' : 
-                                                'btn  botoncin btn-md but'} data-dismiss="modal">{!this.state.status? 
-                                                  'NO, GO BACK' : 
-                                                  'RETURN TO BEGINING'}</button>
+                                           
+                                             <button className= "botoncin" onClick={this.onRegister} data-dismiss="modal"> REGISTER ME</button>
+                                            <button className= "botoncin" onClick={this.onLogin} data-dismiss="modal"> LOG IN </button>
+                                          <button className= "botoncin" onClick={this.homeBack} data-dismiss="modal"> NO, GO BACK </button>
+                        
+                                             
                                           </div>
                                       </div>
                                     </div>
@@ -115,5 +124,13 @@ onRegister = ()=>{
 
 }
 
-export default withRouter(Projects)
+export default withRouter(Projects)// withrouter es per permetre les redireccions via props.history.push('/register');
 
+
+ // <button className="botoncin" className={!this.state.status ? 
+ //                                                'btn  botoncin btn-md but' :
+ //                                                this.state.status ==='KO' ? 
+ //                                                'btn  botoncin btn-md but' : 
+ //                                                'btn  botoncin btn-md but'} data-dismiss="modal">{!this.state.status? 
+ //                                                  'NO, GO BACK' : 
+ //                                                  'RETURN TO BEGINING'}</button>

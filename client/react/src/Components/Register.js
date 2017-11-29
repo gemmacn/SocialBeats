@@ -14,7 +14,7 @@ class Register extends Component{
     name:'',
     surname:'',
     username:'',
-    passwordinput:'',
+    password:'',
     confirm_password:'',
     dni:'',
     mobile:'',
@@ -44,8 +44,7 @@ submitInfo (e){
     name:this.state.name,
     surname:this.state.surname,
     username:this.state.username,
-    passwordinput:this.state.passwordinput,
-    confirm_password:this.state.confirm_password,
+    password:this.state.password,
     dni:this.state.dni,
     mobile:this.state.mobile,
     mail:this.state.mail,
@@ -126,16 +125,16 @@ userCompleteInfo = (completedUser)=>{
                         </div>
                       </div>
                        <div className="form-group">
-                        <label className="col-md-4 control-label" htmlFor="UserName">UserName</label>  
+                        <label className="col-md-4 control-label" htmlFor="username">UserName</label>  
                         <div className="col-md-5">
-                          <input id="UserName" name="UserName" onChange={this.handleInputChange} type="text" placeholder="Username" className="form-control input-md" />
+                          <input id="username" name="username" onChange={this.handleInputChange} type="text" placeholder="Username" className="form-control input-md" />
                         </div>
                       </div>
                       {/* Password input*/}
                       <div className="form-group">
-                        <label className="col-md-4 control-label" htmlFor="passwordinput">Password</label>
+                        <label className="col-md-4 control-label" htmlFor="password">Password</label>
                         <div className="col-md-5">
-                          <input id="passwordinput" name="passwordinput" onChange={this.handleInputChange} type="password"  className="form-control input-md"  />
+                          <input id="password" name="password" onChange={this.handleInputChange} type="password"  className="form-control input-md"  />
                           <span className="help-block">max 16 characters</span>
                         </div>
                       </div>
@@ -145,13 +144,7 @@ userCompleteInfo = (completedUser)=>{
                           <input id="dni" name="dni" onChange={this.handleInputChange} type="dni"  className="form-control input-md"  />
                         </div>
                       </div>
-                      {/* Password input*/}
-                      <div className="form-group">
-                        <label className="col-md-4 control-label" htmlFor="confirm_password">Confirm Password</label>
-                        <div className="col-md-5">
-                          <input id="confirm_password" name="confirm_password" onChange={this.handleInputChange} type="password" placeholder="Re-type password" className="form-control input-md"  />
-                        </div>
-                      </div>
+
                       {/* Text input*/}
                       <div className="form-group">
                         <label className="col-md-4 control-label" htmlFor="mobile">Mobile Number</label>  

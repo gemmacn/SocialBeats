@@ -49,8 +49,18 @@ const  axiosApi = {
 		.catch( (err) => {
 			console.error(err)
 		})
-	}
+	},
 
+
+	sendLogIn: function (logInInfo){
+		return axios.put(this.baseUrl +'/users', {logInInfo}) // em retorna tots els users de moment i cuan rebem la info ja els mapejem 
+		.then(res=>{//
+			return res
+		})
+		.catch((err)=>{
+			console.log(err)
+		})
+	}
 }
 
 

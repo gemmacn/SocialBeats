@@ -6,14 +6,13 @@ const Users = new Schema({
     "surname": String,
     "username": String,
     "password": String,
-    "confirm_password":String,
     "dni": String,
     "mobile": String,
     "mail":String,
     "collaborations": [
 	    {
-	        "festival":String,
-	        "project": String,
+	        "festival":String,// es important que a cualsevol lloc on he de utilizar aquest model els noms siguien exactament igual
+	        "project": String,// i el tipo de dades també
             "projectId":String,
 	        "dateDay": String,
 	        "dateHours": Number,
