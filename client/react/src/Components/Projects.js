@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {HashRouter, Link, Route, Redirect} from 'react-router-dom'
+import {HashRouter, Link, Route, withRouter} from 'react-router-dom'
 import '../styles/main.css';
 import '../styles/projects.css';
 import axiosApi from '../axiosApi'
@@ -13,7 +13,7 @@ constructor(props){
           checked: false,
           date:'',
           redirect: false,
-          status:''
+          status:'OK'
         }
 
 }
@@ -43,7 +43,7 @@ collaborate=() => {
 
 
     axiosApi.collaborate(userId,collaboration.festival._id,collaboration.projectId,collaboration.dateDay,collaboration.dateHours)
-    .then((response) =>{response.data.status ==='KO' ?  this.setState({status:'KO'}) : this.setState({status:'OK'}) /*this.setState({redirect: true})*/})
+    .then((response) =>{response.data.status ==='OK' ?  this.setState({status:'KO'}) : this.setState({status:'OK'}) /*this.setState({redirect: true})*/})
     .catch(console.error)
 }
 
@@ -51,11 +51,13 @@ tryCollaboration = () => {
    this.setState({status: undefined})// me limpia el estado de la llamada axios anterior, la llamo desde el boton Apuntame
 }
 
+onRegister = ()=>{
+  this.props.history.push('/register');
+}
 
 	render(){
     console.log(this.props.project.available_dates,'hola')
-    if(this.state.redirect) return <Redirect to='/register/' />
-    else return (
+    return (
        <section className="festprojects">
               <div className="ong ong1"><h3>{this.props.project.name}</h3><br />
               <span classsName="pdescrip">{this.props.project.description}</span>
@@ -87,17 +89,17 @@ tryCollaboration = () => {
                                       <div className="row">
                                           <div className="col-12-xs text-center">
                                             {!this.state.status? <button className="btn botoncin  btn-md but" 
-                                              onClick={this.collaborate}>SI, SEGUIR</button> : 
+                                              onClick={this.collaborate}>OK, LET'S DO IT</button> : 
                                               this.state.status ==='KO' ? 
                                               <div>Solo se puede participar una vez por cada  Festival, gracias</div> : 
-                                              <button className= "botoncin">SEGUIR Y REGISTRARSE</button>}
-                                              <button className="botoncin" className={!this.state.status? 
+                                             <button className= "botoncin"onChange={this.onRegister} data-dismiss="modal"> REGISTER ME</button>}
+                                              <button className="botoncin" className={!this.state.status ? 
                                                 'btn  botoncin btn-md but' :
                                                 this.state.status ==='KO' ? 
                                                 'btn  botoncin btn-md but' : 
                                                 'btn  botoncin btn-md but'} data-dismiss="modal">{!this.state.status? 
-                                                  'NO, VOLVER ATRÁS' : 
-                                                  'VOLVER AL INICIO'}</button>
+                                                  'NO, GO BACK' : 
+                                                  'RETURN TO BEGINING'}</button>
                                           </div>
                                       </div>
                                     </div>

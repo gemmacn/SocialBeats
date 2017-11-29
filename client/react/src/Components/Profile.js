@@ -14,11 +14,14 @@ constructor(props){
 
 
 componentDidMount(){
-    axiosApi.getUserProfile('5a1d50ec3d733636603426f1')// a dalt he importat axiosApi, i aquí crido a la fucnió que tinc allá.
+      const id = this.props.match.params.id // es una propietat de props que em permet agafar info dels params
+      console.log(id)
+    axiosApi.getUserProfile(id)// a dalt he importat axiosApi, i aquí crido a la fucnió que tinc allá.
       .then((resp) =>{
             this.setState({
              user: resp.data.data
             })
+
       console.log(resp)
         })
 

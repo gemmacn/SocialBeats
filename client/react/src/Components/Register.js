@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {BrowserRouter, Switch,Link,Route} from 'react-router-dom'
+import {BrowserRouter, Switch,Link,Route,Redirect} from 'react-router-dom'
 import '../styles/register.css';
 import '../styles/main.css';
 import  Projects from './Projects'
@@ -19,6 +19,8 @@ class Register extends Component{
     dni:'',
     mobile:'',
     mail:'',
+    redirect:false,
+    id: ''
      }
      this.handleInputChange = this.handleInputChange.bind(this);
      this.submitInfo = this.submitInfo.bind(this);
@@ -52,7 +54,7 @@ submitInfo (e){
       project:this.collaboration.ongName ,
       projectId:this.collaboration.projectId,
       dateDay:this.collaboration.dateDay ,
-      dateHours:this.collaboration.dateHours ,
+      dateHours:this.collaboration.dateHours 
     }]
   }
 console.log(completedUser)
@@ -63,8 +65,12 @@ this.userCompleteInfo(completedUser)
 userCompleteInfo = (completedUser)=>{
     axiosApi.UserProfile(completedUser)// a dalt he importat axiosApi, i aquí crido a la fucnió que tinc allá.
       .then(resp =>{
-          console.log('la info completa del profile sha enviat bé')
-        })
+         this.setState({ 
+          redirect: true, // manejo l'estat per poder fer el Link to i redireccionar
+          id: resp.data.data._id  // de la resposta que tinc de la base de dades amb la info 
+          //agafo l'Id per usarlo en la redireccio pq vagi al perfil d'aquest usuari en concret en els params de la url va
+       })
+      })
         console.log(this.state)
       
   }
@@ -165,7 +171,8 @@ userCompleteInfo = (completedUser)=>{
                       <div className="form-group">
                         <label className="col-md-4 control-label" htmlFor="submit" />
                         <div className="col-md-4">
-                          <Link to ='/profile'><button type="submit"  name="submit" value="Submit" className="btn botoncin">Submit</button></Link>
+                        {this.state.redirect === true? <Redirect to={`/profile/${this.state.id}`} /> : undefined}
+                        <button type="submit"  name="submit" value="Submit" className="btn botoncin">Submit</button>
                         </div>
                       </div>
                         </form>
