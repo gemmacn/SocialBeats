@@ -92,7 +92,7 @@ onRegister = ()=>{
                                               onClick={this.collaborate}>OK, LET'S DO IT</button> : 
                                               this.state.status ==='KO' ? 
                                               <div>Solo se puede participar una vez por cada  Festival, gracias</div> : 
-                                             <button className= "botoncin"onChange={this.onRegister} data-dismiss="modal"> REGISTER ME</button>}
+                                             <button className= "botoncin" onClick={this.onRegister} data-dismiss="modal"> REGISTER ME</button>}
                                               <button className="botoncin" className={!this.state.status ? 
                                                 'btn  botoncin btn-md but' :
                                                 this.state.status ==='KO' ? 
@@ -115,5 +115,5 @@ onRegister = ()=>{
 
 }
 
-export default Projects
+export default withRouter(Projects)
 
