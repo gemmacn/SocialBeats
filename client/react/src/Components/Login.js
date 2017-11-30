@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
-import {BrowserRouter, Switch, Route} from 'react-router-dom'
+import {BrowserRouter, Switch, Route,withRouter} from 'react-router-dom'
 import '../styles/login.css';
 import axiosApi from '../axiosApi'
 import Xtorage from './Xtorage'
 
 class Login extends Component{
-constructor(){
-  super()
+constructor(props){
+  super(props)
     this.state={
       username: '',
-      password:''
+      password:'',
+      badlogin:false
     }
 this.handleInputChange = this.handleInputChange.bind(this);
 this.submitLogin= this.submitLogin.bind(this)
@@ -47,10 +48,19 @@ console.log(logInInfo)
 //this.userCompleteInfo(completedUser)
 }
 
+
+
 loginData = (logInInfo)=>{
     axiosApi.sendLogIn(logInInfo)// a dalt he importat axiosApi, i aquí crido a la fucnió que tinc allá.
       .then(resp =>{ 
-        console.log(resp)
+        if(resp.data.data._id){
+          const id = resp.data.data._id
+          this.props.history.push(`/profile/${id}`)// aquí no posem ':id'  pq no es la ruta general on anirán els id sino la const id que 
+        } else {// es diferent en cada cas y depén de la resposta qu reben d BD
+          this.setState({
+            badlogin:true
+          })
+        }
       })
   }
 
@@ -65,12 +75,13 @@ loginData = (logInInfo)=>{
             <label><b>Password</b></label>
             <input type="password" placeholder="Enter Password" name="password" 
              onChange={this.handleInputChange} required />
-            <button className="botoncin"  type="submit"  name="submit" value="Submit">Login</button>
+            <button className="botoncin" type="submit"  name="submit" value="Submit">Login</button>
           </div>
         </form>
+          <div style={{display: this.state.badlogin ? 'block' : 'none' }} className= "badlogin"> INVALID USERNAME OR PASSWORD</div>
       </div>)
 	}
 }
 
 
-export default Login
+export default withRouter (Login)

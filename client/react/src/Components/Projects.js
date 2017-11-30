@@ -124,10 +124,11 @@ onRegister=()=>{
 
 }
 
-export default withRouter(Projects)// withrouter es per permetre les redireccions via props.history.push('/register');
+export default withRouter(Projects)
+ // withrouter es per permetre les redireccions via props.history.push('/register');
 
 
- // <button className="botoncin" className={!this.state.status ? 
+ // // <button className="botoncin" className={!this.state.status ? 
  //                                                'btn  botoncin btn-md but' :
  //                                                this.state.status ==='KO' ? 
  //                                                'btn  botoncin btn-md but' : 
