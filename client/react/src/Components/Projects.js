@@ -97,7 +97,7 @@ onRegister=()=>{
                                     </div>
                                     <div className="modal-body">
                                       <div>
-                                        <h3 className="modal-title ">ONG SELECCIONADA: {this.props.project.name}</h3>
+                                        <h3 className="modal-title ">ONG SELECCIONADA: {this.props.project.name}</h3><br/>
                                         <h3>FECHA ESCOGIDA: {this.state.dateDay}</h3><br/>
                                         <h3>HORAS DE VOLUNTARIADO: {this.state.dateHours}</h3>
                                       </div>
