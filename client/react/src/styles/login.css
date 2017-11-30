@@ -97,14 +97,6 @@ button:hover {
     opacity: 0.8;
 }
 
-.cancelbtn {
-    width: auto;
-    padding: 10px;
-    background-color: white;
-    margin-bottom: 2%;
-    margin-right: 2%;
-    display:inline;
-}
 
 .imgcontainer {
     text-align: center;
@@ -122,10 +114,13 @@ label{
 }
 
 div.container{
-    width: 100%;
+    width: 90%;
 }
 .container {
     padding: 16px;
+}
+.container input{
+    color:black;
 }
 
 span.psw {
@@ -134,15 +129,5 @@ span.psw {
     color: black;
 }
 
-/* Change styles for span and cancel button on extra small screens */
-/*@media screen and (max-width: 300px) {
-    span.psw {
-       display: block;
-       float: none;
-    }
-    .cancelbtn {
-       width: 100%;
-    }
-}*/
 
 

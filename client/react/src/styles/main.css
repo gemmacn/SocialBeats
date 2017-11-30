@@ -82,7 +82,8 @@ h2{
 	justify-content: space-between;
 align-items:center;
 padding-right: 5%;
-padding-left: 5%;}
+padding-left: 5%;
+}
 
 .crimg,.soimg, .primg{
 	display:block;
@@ -113,7 +114,7 @@ transition-duration: 0.5s;
     outline-offset: 10px;
 }
 .choose{
-	margin-top:44px;
+	margin-top:100px;
 	 font-family: 'Impact';
 	 font-size: 20px;
 	 padding-bottom:5%;
@@ -152,6 +153,10 @@ div .descrip {
     font-size: 45px;
     padding-top: 4%;
 }
+.ahead{
+
+	border:1px solid white;
+}
 }
 
 @media only screen and (max-width : 979px) {
@@ -161,6 +166,11 @@ div .descrip {
 	 font-size: 45px;
 	 padding-top:8%;
 }
+.ahead{
+	height: 143px;
+	border:1px solid white;
+}
+
 }
 
 @media only screen and (max-width : 767px) {
@@ -169,6 +179,15 @@ div .descrip {
 	 font-size: 60px;
 	 padding-top:2%;
 }
+
+ div .ahead{
+	padding:3%;
+	text-align:center;
+}
+form{
+	margin-top: -50px;
+}
+.ahead{height:80px;}
 }
 
 @media only screen and (max-width : 480px) {
@@ -185,6 +204,12 @@ div .descrip {
 .pdescrip{
 	word-wrap:break-word;
 }
+
+.ahead{
+	border-right:none;
+border-left:none;
+height:80px;
+}
 }
 
 @media only screen and (max-width : 320px) {
@@ -192,11 +217,21 @@ div .descrip {
 	height: 133px;
 	font-size: 55px;
 	 padding-top:5%;
+	 border-right:none;
+	 border-left:none;
 
 	}
-.tex1, .text2{border-right:none;}
+.tex1, .text2{
+border-right:none;
+border-left:none;}
+
 	.text1, {
 	display:none;
+	}
+	.ahead{
+border-right:none;
+border-left:none;
+height:80px;
 	}
 
 	h2, .voluntariados{
@@ -222,6 +257,9 @@ div .descrip {
 	  -moz-columns: 1;
 	}
 
+.logcapsa{
+    padding:10%;
+}
 
 }
 

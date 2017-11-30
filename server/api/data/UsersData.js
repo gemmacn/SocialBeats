@@ -11,10 +11,10 @@ class UsersData {
 		return UsersModel.findOne({_id:userId}).exec()
 	}
 
-	subscribeUserToFestivalCollaboration(userId, festivalId, projectId, dateDay, dateHours) {
+	subscribeUserToFestivalCollaboration(userId,festivalId, projectId, dateDay, dateHours) {
 		const collaboration ={
 			festival:festivalId,
-			project: projectId,
+			projectId: projectId,
 			date: dateDay,
 			hours: dateHours,
 			status: 'PENDING'

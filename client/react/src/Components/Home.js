@@ -26,7 +26,7 @@ class Home extends Component{
 
 	render(){
 		return (
-			<article className=" central  col-sm-8">
+			<article className=" central ">
             <div className="choose text-center "><h2>CHOOSE A MUSIC EVENT</h2></div>
             <div className="festis text-center">
               <a onClick={() => this.chooseFestival('Cruilla2018')}><img  className=" cursorPointer crimg" src="images/cruillalogo.jpg" alt="Social Beats" /></a>

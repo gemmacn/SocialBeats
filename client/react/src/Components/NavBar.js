@@ -1,19 +1,24 @@
 import React, {Component} from 'react'
 import '../styles/navBar.css';
-import {Link} from 'react-router-dom'
+import {Link,withRouter} from 'react-router-dom'
 
 
 class NavBar extends Component{
-  constructor(){
-      super()
+  constructor(props){
+      super(props)
  }
 
-render(){
-	return (<div className=" col-sm-8">
-<ul className = "navBar">
-  <li className="efect"><a href="default.asp"><span>Log In</span></a></li>
-  <li className="efect"><a href="news.asp"><span>Log Out</span></a></li>
+ toLogin =()=>{
+this.props.history.push('/login');
+}
 
+
+
+render(){
+	return (<div >
+<ul className = "navBar">
+  <li className="efect" onClick={this.toLogin}>Log In</li>
+  <li className="efect" onClick={this.toLogout}>Log Out</li>
 </ul>
   </div>)
 }
@@ -24,4 +29,4 @@ render(){
 
 
 
-export default NavBar
+export default withRouter(NavBar)

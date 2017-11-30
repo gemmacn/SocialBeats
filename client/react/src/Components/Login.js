@@ -37,7 +37,7 @@ submitLogin (e){
     password:this.state.password,
     collaborations:[{
       festival:this.collaboration.festival,
-      project:this.collaboration.ongName ,
+      project:this.collaboration.project ,
       projectId:this.collaboration.projectId,
       dateDay:this.collaboration.dateDay ,
       dateHours:this.collaboration.dateHours 
@@ -56,7 +56,7 @@ loginData = (logInInfo)=>{
         if(resp.data.data._id){
           const id = resp.data.data._id
           this.props.history.push(`/profile/${id}`)// aquí no posem ':id'  pq no es la ruta general on anirán els id sino la const id que 
-        } else {// es diferent en cada cas y depén de la resposta qu reben d BD
+        } else {// es diferent en cada cas y depén de la resposta qu reben d BD el :id esta en les rutes a APP
           this.setState({
             badlogin:true
           })
@@ -68,7 +68,7 @@ loginData = (logInInfo)=>{
 	render(){
 		return (<div className=" loginform col-md-offset-1  col-sm-5">
         <form onSubmit={this.submitLogin}>
-          <div className="container">
+          <div className="container logcapsa">
             <label><b>Username</b></label>
               <input  type="text" placeholder="Enter Username"name="username" 
                 onChange={this.handleInputChange} required /> 

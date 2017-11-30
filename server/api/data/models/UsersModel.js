@@ -9,6 +9,7 @@ const Users = new Schema({
     "dni": String,
     "mobile": String,
     "mail":String,
+    "photo":String,
     "collaborations": [
 	    {
 	        "festival":String,// es important que a cualsevol lloc on he de utilizar aquest model els noms siguien exactament igual

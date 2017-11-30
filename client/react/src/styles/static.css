@@ -29,7 +29,7 @@ div .descrip {
 }
 
 .text1:hover, .text2:hover{
-	border: 1px solid black;
+	border: 1px solid white;
 	color:black;
 	background-color: white;
 	padding:5%;

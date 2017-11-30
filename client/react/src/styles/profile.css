@@ -32,9 +32,11 @@ font-family: 'Open Sans', sans-serif;
 
 }
 
-h3{
+h3 , ul{
 	font-family: 'Impact';
 	 font-size: 2em;
+	 display:inline;
+
 }
 
 h2{
@@ -56,7 +58,6 @@ div .tittle:hover {
 	background-color: white;
 }
 div .descrip {
-
 	height: 133px;
 	line-height: 90%;
 	 font-family: 'Impact';
@@ -69,73 +70,27 @@ div .descrip {
  -webkit-filter: grayscale(100%); 
   filter: grayscale(100%);
 }
- .perfil{
-padding-right:0 !important;
 
-}
+
 .perfil img{
-margin-top:5%;
-margin-bottom:5%;
-width:20%;
 border-radius:50%;
 border:3px solid white;
-
-}
-.datos{
-height:100%;
-font-size:20px;
-columns: 2;
-width:50%;
+display:inline;
+max-width:200px;
+margin-top:10%;
 }
 
 
+.datosp{
+margin-top:10%;
+}
 
-
-
-@media only screen and (max-width : 1200px) {
+.datosnopersonales{
+padding-top:5%;
+margin:auto auto;
 
 }
 
-@media only screen and (max-width : 979px) {
 
 
-}
 
-@media only screen and (max-width : 767px) {
-.datos{
-height:100%;
-font-size:17px;
-columns: 2;
-width:50%;
-}
-.datos h3{
-	font-size:20px;
-}
-}
-
-@media only screen and (max-width : 480px) {
-.datos{
-height:100%;
-font-size:15px;
-columns: 1;
-width:50%;
-}
-.datos h3{
-	font-size:17px;
-}
-
-}
-
-@media only screen and (max-width : 320px) {
-
-.datos{
-height:100%;
-font-size:15px;
-columns: 1;
-width:50%;
-}
-.datos h3{
-	font-size:17px;
-}
-
-}

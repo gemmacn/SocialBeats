@@ -7,9 +7,9 @@ margin: auto auto;
 display:inline;
 }
 
-.navBar{
+/*.navBar{
 	display:none;
-}
+}*/
 
 @media only screen and (max-width : 1200px) {
   .descrip{height: 124px;}
@@ -30,9 +30,9 @@ display:inline;
 }
 
 .regprev h3{display:block;}
-.navBar{
+/*.navBar{
 	display:none;
-}
+}*/
 .regtittle{
 	margin-left:25%;
 }
@@ -52,9 +52,9 @@ display:inline;
 .text1{
 	display:none;
 }
-.navBar{
+/*.navBar{
 	display:none;
-}
+}*/
 }
 
 @media only screen and (max-width : 320px) {
@@ -72,8 +72,8 @@ font-family: Open Sans;
 .text1{
 	display:none;
 }
-.navBar{
+/*.navBar{
 	display:none;
-}
+}*/
 
 }

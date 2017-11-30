@@ -48,15 +48,16 @@ submitInfo (e){
     dni:this.state.dni,
     mobile:this.state.mobile,
     mail:this.state.mail,
+    photo:this.state.photo,
     collaborations:[{
       festival:this.collaboration.festival,
-      project:this.collaboration.ongName ,
+      project:this.collaboration.project ,
       projectId:this.collaboration.projectId,
       dateDay:this.collaboration.dateDay ,
       dateHours:this.collaboration.dateHours 
     }]
   }
-console.log(completedUser)
+console.log(completedUser, 'completed useeeeeeeeeerr')
 this.userCompleteInfo(completedUser)
 }
 
@@ -101,7 +102,7 @@ userCompleteInfo = (completedUser)=>{
             <div className="row">
                     <div className="regprev">
                         <h3 className="col-sm-6">FESTIVAL: {this.collaboration.festival}</h3>
-                         <h3 className="col-sm-6">ONG: {this.collaboration.ongName}</h3>
+                         <h3 className="col-sm-6">ONG: {this.collaboration.project}</h3>
                          <h3 className="col-sm-6">DÍA DEL VOLUNTARIADO: {this.collaboration.dateDay} </h3>
                          <h3 className="col-sm-6">HORAS DE VOLUNTARIADO:{this.collaboration.dateHours}hrs </h3>
                       </div>
@@ -135,7 +136,7 @@ userCompleteInfo = (completedUser)=>{
                         <label className="col-md-4 control-label" htmlFor="password">Password</label>
                         <div className="col-md-5">
                           <input id="password" name="password" onChange={this.handleInputChange} type="password"  className="form-control input-md"  />
-                          <span className="help-block">max 16 characters</span>
+                          
                         </div>
                       </div>
                       <div className="form-group">
@@ -157,6 +158,13 @@ userCompleteInfo = (completedUser)=>{
                         <label className="col-md-4 control-label" htmlFor="mail">Email </label>  
                         <div className="col-md-6">
                           <input id="mail" name="mail" onChange={this.handleInputChange} type="text" placeholder="user@domain.com" className="form-control input-md" />
+                        </div>
+                      </div>
+
+                      <div className="form-group">
+                        <label className="col-md-4 control-label" htmlFor="photo">Photo</label>  
+                        <div className="col-md-6">
+                          <input id="photo" name="photo" onChange={this.handleInputChange} type="text" placeholder="copy a photo URL" className="form-control input-md" />
                         </div>
                       </div>
                       
