@@ -47,7 +47,7 @@ componentDidMount(){
   </div>
               
     <center><div className="row datosnopersonales">
-              <h3>FESTIVAL: </h3>
+              <h3>FESTIVAL </h3>
               <ul>
                {
               this.state.user.collaborations.length && this.state.user.collaborations.map((collaboration,i) => 
@@ -63,7 +63,7 @@ componentDidMount(){
               }
               </ul>
 
-              <h3>Hours </h3>
+              <h3>VOLUNTEERING HOURS </h3>
               <ul>
                {
               this.state.user.collaborations.length && this.state.user.collaborations.map((collaboration,i) => 
@@ -71,15 +71,15 @@ componentDidMount(){
               }
               </ul>
 
-              <h3>Date:</h3> 
+              <h3>DATE</h3> 
               <ul>
                {
               this.state.user.collaborations.length && this.state.user.collaborations.map((collaboration,i) => 
                <li key={i}>{collaboration.dateDay}</li>) 
               }
               </ul>
-              <h3>State:</h3> Need confirmation from the ONG<br/>
-    </div></center>
+              <h3>State:</h3><br/><span className="ongalert">Need confirmation from the ONG</span>
+              </div></center>
 </div>
   )
 	}

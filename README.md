@@ -1,44 +1,31 @@
-API:
-https://obscure-stream-32522.herokuapp.com/
-WEB-APP:
-https://vast-escarpment-34979.herokuapp.com/
+#SOCIAL BEAT
 
- git config --list
+SkyLab Coders Academy final Project November 2017. Mostly coded in React as my aim it's to find myself confortable in front-end before working with backend. I use axios to call the API from React.
 
-heroku logs --tail
+###The Idea:
 
-mongodb://lilith:10b579ba@ds251435.mlab.com:51435/dbsocialbeats
+Is to engage young consummers of music events to volunteer in ONG's in exchange of a reduction in the price of the ticket entrace for each music event. Promoting volunteering and culture all at once.
 
+##BUILD WITH:
 
+-Bootstrap
 
-1. Pasos para subir a Heroku:
-    1.1: Export BD de mongo:
-     mongoexport -d socialbeats -c userscollection --jsonArray -o server/data/users.json
+-React
 
-     mongoimport -h ds123614.mlab.com:23614 -d socialbeats -c userscollection -u admin -p 1234 --jsonArray --file server/data/users.json
+-Node.js/Express
 
-2. En la API hemos cambiado:
-    mongoose.connect('mongodb://lilith:10b579ba@ds251435.mlab.com:51435/dbsocialbeats',{useMongoClient:true})
-    .then (()=> console.log('conected'))
-    .catch (err=>console.log(err))
+-NPM
 
-   (Antes conectab a mi DB local)
+-MongoDB
 
-3. El servidor node de la carpeta API, se conecta con git (.git) haciendo un git init.
-- Para ver archivos ocultos git ls -a
-git add --all
-git commit -m "jhsdj"
-heroku create ---> Crea el repo remoto 
-Crear el archivo Procfile (web: node index.js)
-Hacer un archivo .gitignore para el node_modules
+-mLab
 
-(en algun punto he de fer un arxiu .env pq heroku vol triar ell el port i fer el install dotenv --save)
+To run the aplication:
 
-la Url de les trucades s'ha de canviar de localhost:3000 a : 
-'https://obscure-stream-32522.herokuapp.com', basicament a la ruta de la api 
+###In console:
 
-4. npm run build ----> en la carpeta de REACT  te crea una carpeta Build que le cambiamos el nombre a Public, para servir contenido estático. Esta carpeta Build la movemos a dentro de la carpeta app, donde creamos un nuevo servidor de express ( npm init + npm install express --save + rpm start)
+mongod( to run mongo)
 
-git push heroku master
+npm start ( for running react)
 
-
+node. (to run nodejs)

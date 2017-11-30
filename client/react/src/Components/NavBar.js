@@ -12,7 +12,9 @@ class NavBar extends Component{
 this.props.history.push('/login');
 }
 
-
+ toLogout =()=>{
+this.props.history.push('/');
+}
 
 render(){
 	return (<div >
