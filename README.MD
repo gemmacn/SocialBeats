@@ -17,8 +17,12 @@ I use axios to call the API from React.
 
 ## The Idea:
 
-Is to engage young peolple interested in  music events and culture  to volunteer in ONG's in exchange of a reduction 
+Is to engage young peolple interested in  music events and culture  to volunteer in NGO's in exchange of a reduction 
 in the price of the ticket entrace for those events and festivals. Promoting volunteering and using a disruptive concept to change the way we consume culture.
+
+You have to choose among three diferent music events, each one of them is collaborating with 3/4 NGO that give you diferent projects and days to go volunteering. Once you have chosen one project you need to register and wait for confirmation from the NGO. 
+
+After you've done the required volunteering hours it will be given to you the entrance discount for the selected music event.
 
 
  ### To run the aplication:
