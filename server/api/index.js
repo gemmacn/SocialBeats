@@ -13,8 +13,8 @@ const festivalsData = new(require('./data/FestivalsData.js'))
 
 
 app.use(bodyParser.json())
-app.use(cors())
-mongoose.Promise = Promise
+app.use(cors())//  para dar permisos entre dif servidores pq sin no te deja. allow acces algo asi
+mongoose.Promise = Promise //
 mongoose.connect('mongodb://lilith:10b579ba@ds251435.mlab.com:51435/dbsocialbeats',{useMongoClient:true})
 .then (()=> console.log('conected'))
 .catch (err=>console.log(err))

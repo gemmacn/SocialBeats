@@ -89,12 +89,18 @@ padding-left: 5%;
 	display:block;
 	filter: invert(0%);
 	width:70%;
-	outline: 0px;
+	outline: 0px ;
 transition-duration: 0.5s;
 }
 
 
-.crimg:hover{
+.festactive{
+	filter: invert(100%);
+	outline: 1px solid black ;
+    outline-offset: 10px;
+}
+
+/*.crimg:hover{
 	filter: invert(100%);
 	outline: 1px solid black ;
     outline-offset: 10px;
@@ -112,7 +118,7 @@ transition-duration: 0.5s;
 	filter: invert(100%);
 	outline: 1px solid black;
     outline-offset: 10px;
-}
+}*/
 .choose{
 	margin-top:100px;
 	 font-family: 'Impact';

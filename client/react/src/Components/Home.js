@@ -23,15 +23,18 @@ class Home extends Component{
       })
   }
 
+isFestivalChosen = (festivalName)=>{
+ return this.state.festival && this.state.festival.name === festivalName;
+}
 
 	render(){
 		return (
 			<article className=" central ">
             <div className="choose text-center "><h2>CHOOSE A MUSIC EVENT</h2></div>
             <div className="festis text-center">
-              <a onClick={() => this.chooseFestival('Cruilla2018')}><img  className=" cursorPointer crimg" src="images/cruillalogo.jpg" alt="Social Beats" /></a>
-               <a onClick={()=>this.chooseFestival('Sonar 2018')}><img  className=" cursorPointer soimg" src="images/sonarlogo.jpg" alt="Social Beats" /></a>
-               <a onClick={()=>this.chooseFestival('Primavera Sound 2018')}><img className=" cursorPointer primg" src="images/primaveralogo.jpg" alt="Social Beats" /></a>
+              <a onClick={() => this.chooseFestival('Cruilla2018')}><img className={"cursorPointer crimg " + (this.isFestivalChosen('Cruilla2018')? "festactive" : "")} src="images/cruillalogo.jpg" alt="Social Beats" /></a>
+               <a onClick={()=>this.chooseFestival('Sonar 2018')}><img  className={"cursorPointer soimg " + (this.isFestivalChosen('Sonar 2018')? "festactive" : "")} src="images/sonarlogo.jpg" alt="Social Beats" /></a>
+               <a onClick={()=>this.chooseFestival('Primavera Sound 2018')}><img className= {"cursorPointer primg " + (this.isFestivalChosen('Primavera Sound 2018')?"festactive": "")} src="images/primaveralogo.jpg" alt="Social Beats" /></a>
             </div>
            {this.state.festival.projectes.length ? <div className="voluntariados text-center">CHOOSE A VOLUNTEER PROJECT</div> : ''
             }

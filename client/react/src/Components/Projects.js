@@ -47,7 +47,7 @@ collaborate=() => {
     // .catch(console.error)
 }
 register = ()=>{
-  this.props.history.push('/register');
+  this.props.history.push('/register'); // history es un objeto que viene de react y tiene metodos como push para cambios de location
 }
 login = ()=>{
   this.props.history.push('/login');

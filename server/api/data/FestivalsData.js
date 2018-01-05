@@ -7,7 +7,7 @@ class FestData {
 		return FestivalsModel.findOne({name: festivalName})
 		.populate('projectes')
 		.exec()
-		 // exec() devuelve una promise
+		 // exec() devuelve una promise ( reject, resolve)
 		}
 
 	listAllFestivals(){
